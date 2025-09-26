@@ -1,0 +1,110 @@
+# Appium Configuration for Mobile Testing
+# SDET Technical Exercise - Mobile Automation
+
+# Appium Server Configuration
+appium:
+  server:
+    host: "127.0.0.1"
+    port: 4723
+    log_level: "info"
+    allow_cors: true
+    relax_strict_caps: true
+
+# Android Configuration
+android:
+  platform_name: "Android"
+  platform_version: "11.0"
+  device_name: "emulator-5554"
+  automation_name: "UiAutomator2"
+  app_package: "com.android.calculator2"
+  app_activity: "com.android.calculator2.Calculator"
+  app_path: ""
+  new_command_timeout: 300
+  app_wait_timeout: 30000
+  device_ready_timeout: 30
+  android_device_ready_timeout: 30
+
+# iOS Configuration
+ios:
+  platform_name: "iOS"
+  platform_version: "15.0"
+  device_name: "iPhone 13"
+  automation_name: "XCUITest"
+  bundle_id: "com.apple.calculator"
+  app_path: ""
+  new_command_timeout: 300
+  app_wait_timeout: 30000
+  device_ready_timeout: 30
+  wda_local_port: 8100
+  use_new_wda: true
+
+# Mobile Test Data
+mobile_test_data:
+  calculator_app:
+    android_package: "com.android.calculator2"
+    ios_bundle: "com.apple.calculator"
+  sample_app:
+    android_package: "com.example.sampleapp"
+    ios_bundle: "com.example.sampleapp"
+
+# Mobile Capabilities Templates
+capabilities:
+  android_calculator:
+    platformName: "Android"
+    platformVersion: "11.0"
+    deviceName: "emulator-5554"
+    automationName: "UiAutomator2"
+    appPackage: "com.android.calculator2"
+    appActivity: "com.android.calculator2.Calculator"
+    noReset: true
+    fullReset: false
+
+  ios_calculator:
+    platformName: "iOS"
+    platformVersion: "15.0"
+    deviceName: "iPhone 13"
+    automationName: "XCUITest"
+    bundleId: "com.apple.calculator"
+    noReset: true
+    fullReset: false
+
+  android_sample:
+    platformName: "Android"
+    platformVersion: "11.0"
+    deviceName: "emulator-5554"
+    automationName: "UiAutomator2"
+    appPackage: "com.example.sampleapp"
+    appActivity: ".MainActivity"
+    noReset: false
+    fullReset: false
+
+# Mobile Test Scenarios
+mobile_scenarios:
+  calculator:
+    - "Basic arithmetic operations"
+    - "Scientific calculations"
+    - "Memory functions"
+    - "History validation"
+    - "Theme switching"
+
+  sample_app:
+    - "Login functionality"
+    - "Navigation testing"
+    - "Form validation"
+    - "Data persistence"
+    - "Offline mode"
+
+# Mobile Reporting
+mobile_reporting:
+  screenshots_on_failure: true
+  screenshots_on_error: true
+  video_recording: true
+  logcat_capture: true
+  performance_metrics: true
+
+# Mobile Performance
+mobile_performance:
+  response_time_threshold: 2000  # milliseconds
+  memory_threshold: 100  # MB
+  battery_threshold: 80  # percentage
+  network_latency_threshold: 500  # milliseconds

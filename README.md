@@ -21,32 +21,41 @@ This project showcases a modern, scalable automation testing framework that meet
 - **Robot Framework 7.0** - Test automation framework
 - **Python 3.9+** - Programming language
 - **Selenium WebDriver** - Web UI automation
-- **Appium** (ready for mobile testing)
+- **Appium** - Mobile app automation
+- **Applitools Eyes** - AI-powered visual testing
 
 ### 🛠️ Custom Libraries
 - **WebUtils** - Enhanced web automation utilities
+- **MobileUtils** - Advanced mobile testing with Appium
 - **AITestGenerator** - AI-powered test case generation
-- **AIVisualValidator** - AI-powered visual testing and validation
+- **AIVisualValidator** - AI visual validation with computer vision
+- **ApplitoolsValidator** - Applitools Eyes integration
 
 ### 🎨 Advanced Capabilities
 - **AI Test Generation** - Generate test scenarios using OpenAI/Anthropic
 - **Visual Validation** - Computer vision for UI element detection
+- **Mobile Automation** - Full Appium support for Android/iOS
+- **Cross-Browser Testing** - Visual Grid for multiple browsers
 - **Smart Assertions** - AI-generated test assertions
 - **Error Handling** - Comprehensive failure recovery
-- **Screenshot Management** - Automated screenshot capture and analysis
+- **Screenshot Management** - Automated capture and analysis
+- **Enhanced Reporting** - Allure integration with screenshots
 
 ## 📁 Project Structure
 
 ```
 sdet-technical-exercise/
 ├── config/
-│   └── robot.yaml                 # Configuration settings
+│   ├── robot.yaml                 # Main configuration
+│   └── appium.yaml               # Mobile testing config
 ├── libraries/
 │   ├── custom/
-│   │   └── WebUtils.py           # Enhanced web utilities
+│   │   ├── WebUtils.py           # Enhanced web utilities
+│   │   └── MobileUtils.py        # Mobile automation utilities
 │   └── ai/
 │       ├── AITestGenerator.py    # AI test generation
-│       └── AIVisualValidator.py  # AI visual validation
+│       ├── AIVisualValidator.py  # AI visual validation
+│       └── ApplitoolsValidator.py # Applitools Eyes integration
 ├── tests/
 │   ├── resources/
 │   │   ├── common.robot          # Shared keywords
@@ -54,10 +63,16 @@ sdet-technical-exercise/
 │   │   └── test_data.robot       # Test data
 │   └── suites/
 │       ├── demo_tests.robot      # Working demo tests
-│       └── smoke_tests.robot     # Comprehensive tests
+│       ├── smoke_tests.robot     # Comprehensive web tests
+│       ├── mobile_tests.robot    # Mobile automation tests
+│       └── visual_tests.robot    # Visual testing with Applitools
+├── screenshots/                  # Automated screenshots
+│   ├── applitools/              # Applitools screenshots
+│   └── mobile/                  # Mobile screenshots
+├── reports/                      # Test reports and logs
 ├── requirements.txt              # Python dependencies
-├── run_tests.py                  # Test runner script
-└── README.md                     # This file
+├── run_tests.py                  # Enhanced test runner
+└── README.md                     # Comprehensive documentation
 ```
 
 ## 🚀 Quick Start
@@ -65,6 +80,8 @@ sdet-technical-exercise/
 ### Prerequisites
 - Python 3.9 or higher
 - Chrome browser (for Selenium)
+- Android SDK (for mobile testing)
+- Appium Server (for mobile testing)
 - Git (for version control)
 
 ### Installation
@@ -85,10 +102,32 @@ sdet-technical-exercise/
    robot --version  # Verify installation
    ```
 
-4. **Set up environment variables (optional)**
+4. **Install and setup Appium (for mobile testing)**
    ```bash
-   export OPENAI_API_KEY="your-openai-key"  # For AI features
-   export ANTHROPIC_API_KEY="your-anthropic-key"  # Alternative AI provider
+   # Install Appium globally
+   npm install -g appium
+
+   # Install UiAutomator2 driver
+   appium driver install uiautomator2
+
+   # Install XCUITest driver (for iOS)
+   appium driver install xcuitest
+   ```
+
+5. **Set up environment variables**
+   ```bash
+   export OPENAI_API_KEY="your-openai-key"          # For AI features
+   export ANTHROPIC_API_KEY="your-anthropic-key"    # Alternative AI provider
+   export APPLITOOLS_API_KEY="your-applitools-key"  # For visual testing
+   ```
+
+6. **Install Android SDK (for mobile testing)**
+   ```bash
+   # Set ANDROID_HOME environment variable
+   export ANDROID_HOME="$HOME/Android/Sdk"
+
+   # Add to PATH
+   export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH"
    ```
 
 ### Running Tests
@@ -117,13 +156,43 @@ robot --outputdir results --loglevel DEBUG tests/suites/
 robot --test "DEMO*" --processes 3 tests/suites/
 ```
 
-#### AI-Powered Test Execution
+#### Mobile Test Execution
 ```bash
-# Generate test scenarios using AI
-robot --variable AI_PROVIDER:openai tests/suites/ai_tests.robot
+# Start Appium server (run in separate terminal)
+appium --port 4723
 
-# Run visual validation tests
-robot tests/suites/visual_tests.robot
+# Run mobile tests
+robot tests/suites/mobile_tests.robot
+
+# Run mobile tests with specific device
+robot --variable DEVICE_NAME:emulator-5556 tests/suites/mobile_tests.robot
+```
+
+#### Visual Test Execution
+```bash
+# Run visual tests with Applitools Eyes
+robot --variable APPLITOOLS_API_KEY:your-key tests/suites/visual_tests.robot
+
+# Run cross-browser visual tests
+robot --variable BROWSER_COUNT:3 tests/suites/visual_tests.robot
+
+# Run visual tests with custom baseline
+robot --variable BASELINE_PATH:custom/baselines tests/suites/visual_tests.robot
+```
+
+#### Enhanced Test Execution Options
+```bash
+# Run all test suites
+python3 run_tests.py --all
+
+# Run with enhanced reporting
+robot --listener allure_robotframework.AllureListener tests/suites/
+
+# Run with parallel execution
+robot --processes 3 tests/suites/
+
+# Run with custom configuration
+robot --variable ENV:staging --variable BROWSER:firefox tests/suites/
 ```
 
 ## 📋 Available Test Suites
@@ -138,8 +207,8 @@ robot tests/suites/visual_tests.robot
 - ✅ **Screenshot Capture** - Automated screenshot functionality
 - ✅ **Dynamic Content** - Runtime content validation
 
-### 🚀 Smoke Tests (`smoke_tests.robot`)
-**Comprehensive functionality testing**
+### 🚀 Web Tests (`smoke_tests.robot`)
+**Comprehensive web functionality testing**
 - Home page validation
 - User authentication
 - Product search and navigation
@@ -147,7 +216,27 @@ robot tests/suites/visual_tests.robot
 - User registration
 - Contact forms
 - Responsive design
-- AI-generated tests
+- Error handling scenarios
+
+### 📱 Mobile Tests (`mobile_tests.robot`)
+**Complete mobile automation testing with Appium**
+- Calculator app automation
+- Swipe gestures and touch actions
+- Device orientation changes
+- App background/foreground handling
+- Mobile screenshots and performance
+- Cross-platform testing (Android/iOS)
+- Mobile-specific error handling
+
+### 👁️ Visual Tests (`visual_tests.robot`)
+**Advanced visual testing with Applitools Eyes**
+- Visual baseline creation and comparison
+- Cross-browser visual validation
+- Responsive design visual testing
+- Image quality analysis
+- Visual consistency validation
+- AI-powered element detection
+- Comprehensive visual reporting
 
 ## 🛠️ Custom Libraries
 
@@ -185,6 +274,31 @@ ${edge_cases}=    Generate Edge Cases    user authentication
 Log    ${edge_cases}
 ```
 
+### MobileUtils Library
+Advanced mobile automation with Appium:
+
+```robot
+# Start and stop Appium server
+Start Appium Server
+# ... run mobile tests ...
+Stop Appium Server
+
+# Mobile gestures
+Swipe Up    1000
+Swipe Down    1000
+Swipe Left    1000
+Swipe Right    1000
+
+# Mobile interactions
+Tap Element    //button[@text='Submit']
+Long Press Element    //button[@text='Menu']    2000
+
+# Device controls
+Rotate Device    LANDSCAPE
+Get Device Info
+Hide Keyboard
+```
+
 ### AIVisualValidator Library
 Computer vision and visual testing:
 
@@ -198,6 +312,35 @@ ${is_similar}    ${similarity}=    Compare Visual Elements    baseline.png    cu
 # Detect UI elements using AI
 ${elements}=    Detect UI Elements    screenshot.png
 Log    Found ${elements}[total_elements] elements
+
+# Validate image quality
+${quality}=    Validate Image Quality    screenshot.png
+Log    Quality score: ${quality}[quality_score]
+```
+
+### ApplitoolsValidator Library
+Applitools Eyes integration for advanced visual testing:
+
+```robot
+# Initialize visual testing
+Start Visual Test    My Test    1920x1080
+
+# Check entire window
+Check Window    Main Page View
+
+# Check specific elements
+Check Element    //div[@id='header']    Header Element
+
+# Check specific region
+Check Region    100    200    300    400    Specific Area
+
+# End test and get results
+${results}=    End Visual Test
+Log    Test status: ${results}[status]
+
+# Generate comprehensive report
+${report}=    Generate Visual Report    ${results}
+Log    Report saved: ${report}
 ```
 
 ## ⚙️ Configuration
@@ -309,13 +452,38 @@ allure generate allure-results --clean
 allure open
 ```
 
-### Custom Metrics
-The framework provides detailed metrics:
+### Enhanced Reporting Features
 
-- **Test Execution Time** - Performance monitoring
-- **Screenshot Analysis** - Visual quality metrics
-- **Element Detection** - UI component analysis
-- **AI Confidence Scores** - Test generation quality
+#### Allure Integration
+- **Interactive Dashboards** - Rich web-based reports
+- **Screenshot Attachments** - Visual evidence in reports
+- **Test History Tracking** - Trend analysis over time
+- **Defect Categorization** - Organized failure analysis
+- **Performance Metrics** - Execution time and resource usage
+
+#### Visual Testing Reports
+- **Baseline Comparisons** - Side-by-side visual differences
+- **Image Quality Analysis** - Brightness, contrast, sharpness metrics
+- **Element Detection Results** - AI-identified UI components
+- **Cross-Browser Screenshots** - Multi-browser visual validation
+- **Visual Regression Reports** - Comprehensive change tracking
+
+#### Mobile Testing Reports
+- **Device Performance** - CPU, memory, battery metrics
+- **Network Analysis** - Connection speed and latency
+- **Gesture Tracking** - Touch and swipe action logs
+- **App State Monitoring** - Foreground/background transitions
+- **Crash Reports** - Mobile-specific error tracking
+
+### Advanced Metrics
+The framework provides comprehensive metrics:
+
+- **Test Execution Time** - Performance monitoring with thresholds
+- **Screenshot Analysis** - Visual quality metrics and comparison scores
+- **Element Detection** - UI component analysis with confidence scores
+- **AI Confidence Scores** - Test generation quality assessment
+- **Mobile Performance** - Device-specific metrics and benchmarks
+- **Visual Consistency** - Baseline deviation tracking
 
 ## 🔧 Development and Extension
 
