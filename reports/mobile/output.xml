@@ -1,0 +1,1183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.9.19 on darwin)" generated="2025-09-26T16:47:54.920966" rpa="false" schemaversion="5">
+<suite id="s1" name="Mobile Simulation Tests" source="/Users/vanvo/Documents/sdet-technical-exercise/tests/suites/mobile_simulation_tests.robot">
+<kw name="Setup Mobile Simulation Environment" type="SETUP">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-09-26T16:47:55.006878" level="INFO" html="true">Directory '&lt;a href="file:///Users/vanvo/Documents/sdet-technical-exercise/screenshots/mobile"&gt;/Users/vanvo/Documents/sdet-technical-exercise/screenshots/mobile&lt;/a&gt;' already exists.</msg>
+<arg>screenshots/mobile</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-09-26T16:47:55.006768" elapsed="0.000145"/>
+</kw>
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-09-26T16:47:55.007036" level="INFO" html="true">Directory '&lt;a href="file:///Users/vanvo/Documents/sdet-technical-exercise/reports/mobile"&gt;/Users/vanvo/Documents/sdet-technical-exercise/reports/mobile&lt;/a&gt;' already exists.</msg>
+<arg>reports/mobile</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-09-26T16:47:55.006975" elapsed="0.000082"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:47:55.007151" level="INFO">Mobile simulation environment setup completed</msg>
+<arg>Mobile simulation environment setup completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:47:55.007107" elapsed="0.000063"/>
+</kw>
+<doc>Setup mobile simulation environment</doc>
+<status status="PASS" start="2025-09-26T16:47:55.006320" elapsed="0.000884"/>
+</kw>
+<test id="s1-t1" name="MOBILE_SIM_001_Test Mobile Viewport Simulation" line="24">
+<kw name="Setup Mobile Browser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:47:55.007804" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-26T16:47:55.007637" elapsed="3.170586"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-09-26T16:47:58.179257" elapsed="0.637373"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2025-09-26T16:47:58.816784" elapsed="0.001005"/>
+</kw>
+<doc>Setup browser for mobile simulation</doc>
+<status status="PASS" start="2025-09-26T16:47:55.007502" elapsed="3.810407"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:47:58.818265" level="INFO">Opening url 'https://demo.nopcommerce.com'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-26T16:47:58.818117" elapsed="1.030210"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>667</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2025-09-26T16:47:59.848476" elapsed="0.711119"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:00.621417" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="mobile_iphone_se.png"&gt;&lt;img src="mobile_iphone_se.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-09-26T16:48:00.621530" level="INFO">${screenshot_iphone} = /Users/vanvo/Documents/sdet-technical-exercise/reports/mobile/mobile_iphone_se.png</msg>
+<var>${screenshot_iphone}</var>
+<arg>mobile_iphone_se.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T16:48:00.559991" elapsed="0.061557"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:00.634382" level="INFO">Element '//img[@alt='nopCommerce demo store']' is displayed.</msg>
+<arg>${HOME_LOGO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-26T16:48:00.621708" elapsed="0.012737"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:00.642249" level="INFO">Element '//input[@id='small-searchterms']' is displayed.</msg>
+<arg>${SEARCH_BOX}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-26T16:48:00.634580" elapsed="0.007731"/>
+</kw>
+<kw name="Get Window Size" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:00.643409" level="INFO">${window_size} = (500, 667)</msg>
+<var>${window_size}</var>
+<doc>Returns current window width and height as integers.</doc>
+<status status="PASS" start="2025-09-26T16:48:00.642448" elapsed="0.000977"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:48:00.643656" level="INFO">Current viewport: 500x667 (iPhone SE)</msg>
+<arg>Current viewport: ${window_size}[0]x${window_size}[1] (iPhone SE)</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:48:00.643518" elapsed="0.000161"/>
+</kw>
+<kw name="Teardown Mobile Browser" type="TEARDOWN">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:00.690303" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="MOBILE_SIM_001_Test%20Mobile%20Viewport%20Simulation_teardown.png"&gt;&lt;img src="MOBILE_SIM_001_Test%20Mobile%20Viewport%20Simulation_teardown.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T16:48:00.644540" elapsed="0.045836"/>
+</kw>
+<msg time="2025-09-26T16:48:00.690462" level="INFO">${screenshot_taken} = True</msg>
+<var>${screenshot_taken}</var>
+<arg>Capture Page Screenshot</arg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-26T16:48:00.644425" elapsed="0.046050"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-09-26T16:48:00.690585" elapsed="0.076657"/>
+</kw>
+<doc>Cleanup browser after mobile simulation</doc>
+<status status="PASS" start="2025-09-26T16:48:00.643886" elapsed="0.123443"/>
+</kw>
+<doc>Test mobile viewport simulation using Chrome DevTools</doc>
+<tag>mobile</tag>
+<tag>responsive</tag>
+<tag>simulation</tag>
+<tag>working</tag>
+<status status="PASS" start="2025-09-26T16:47:55.007248" elapsed="5.760113"/>
+</test>
+<test id="s1-t2" name="MOBILE_SIM_002_Test Tablet Viewport Simulation" line="41">
+<kw name="Setup Mobile Browser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:00.768418" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-26T16:48:00.768264" elapsed="1.931249"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-09-26T16:48:02.700566" elapsed="0.596959"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2025-09-26T16:48:03.297678" elapsed="0.000711"/>
+</kw>
+<doc>Setup browser for mobile simulation</doc>
+<status status="PASS" start="2025-09-26T16:48:00.767894" elapsed="2.530593"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:03.298811" level="INFO">Opening url 'https://demo.nopcommerce.com'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-26T16:48:03.298670" elapsed="0.572842"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>768</arg>
+<arg>1024</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2025-09-26T16:48:03.871671" elapsed="0.688244"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:04.703635" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="mobile_ipad.png"&gt;&lt;img src="mobile_ipad.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-09-26T16:48:04.703747" level="INFO">${screenshot_ipad} = /Users/vanvo/Documents/sdet-technical-exercise/reports/mobile/mobile_ipad.png</msg>
+<var>${screenshot_ipad}</var>
+<arg>mobile_ipad.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T16:48:04.560278" elapsed="0.143485"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:04.716707" level="INFO">Element '//img[@alt='nopCommerce demo store']' is displayed.</msg>
+<arg>${HOME_LOGO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-26T16:48:04.703911" elapsed="0.013005"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:04.729095" level="INFO">Element '//input[@id='small-searchterms']' is displayed.</msg>
+<arg>${SEARCH_BOX}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-26T16:48:04.717351" elapsed="0.011817"/>
+</kw>
+<kw name="Get Window Size" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:04.731000" level="INFO">${window_size} = (768, 894)</msg>
+<var>${window_size}</var>
+<doc>Returns current window width and height as integers.</doc>
+<status status="PASS" start="2025-09-26T16:48:04.729405" elapsed="0.001615"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:48:04.731283" level="INFO">Current viewport: 768x894 (iPad)</msg>
+<arg>Current viewport: ${window_size}[0]x${window_size}[1] (iPad)</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:48:04.731139" elapsed="0.000168"/>
+</kw>
+<kw name="Teardown Mobile Browser" type="TEARDOWN">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:04.846523" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="MOBILE_SIM_002_Test%20Tablet%20Viewport%20Simulation_teardown.png"&gt;&lt;img src="MOBILE_SIM_002_Test%20Tablet%20Viewport%20Simulation_teardown.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T16:48:04.731820" elapsed="0.114851"/>
+</kw>
+<msg time="2025-09-26T16:48:04.846804" level="INFO">${screenshot_taken} = True</msg>
+<var>${screenshot_taken}</var>
+<arg>Capture Page Screenshot</arg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-26T16:48:04.731721" elapsed="0.115096"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-09-26T16:48:04.846977" elapsed="0.071965"/>
+</kw>
+<doc>Cleanup browser after mobile simulation</doc>
+<status status="PASS" start="2025-09-26T16:48:04.731511" elapsed="0.187566"/>
+</kw>
+<doc>Test tablet viewport simulation</doc>
+<tag>mobile</tag>
+<tag>simulation</tag>
+<tag>tablet</tag>
+<tag>working</tag>
+<status status="PASS" start="2025-09-26T16:48:00.767611" elapsed="4.151508"/>
+</test>
+<test id="s1-t3" name="MOBILE_SIM_003_Test Mobile Touch Simulation" line="58">
+<kw name="Setup Mobile Browser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:04.920012" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-26T16:48:04.919877" elapsed="2.436900"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-09-26T16:48:07.357400" elapsed="0.357957"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2025-09-26T16:48:07.715576" elapsed="0.001006"/>
+</kw>
+<doc>Setup browser for mobile simulation</doc>
+<status status="PASS" start="2025-09-26T16:48:04.919705" elapsed="2.796983"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:07.716976" level="INFO">Opening url 'https://demo.nopcommerce.com'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-26T16:48:07.716848" elapsed="0.479663"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>667</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2025-09-26T16:48:08.196687" elapsed="0.682990"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:08.880385" level="INFO">Executing JavaScript:
+// Simulate touch event on search boxvar searchBox = document.querySelector('input[id="small-searchterms"]');if (searchBox) {var touchEvent = new Event('touchstart', { bubbles: true });searchBox.dispatchEvent(touchEvent);console.log('Touch event simulated on search box');}
+Without any arguments.</msg>
+<arg>// Simulate touch event on search box</arg>
+<arg>var searchBox = document.querySelector('input[id="small-searchterms"]');</arg>
+<arg>if (searchBox) {</arg>
+<arg>var touchEvent = new Event('touchstart', { bubbles: true });</arg>
+<arg>searchBox.dispatchEvent(touchEvent);</arg>
+<arg>console.log('Touch event simulated on search box');</arg>
+<arg>}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-09-26T16:48:08.880019" elapsed="0.002950"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:08.883319" level="INFO">Typing text 'mobile test' into text field '//input[@id='small-searchterms']'.</msg>
+<arg>${SEARCH_BOX}</arg>
+<arg>mobile test</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-26T16:48:08.883116" elapsed="0.090756"/>
+</kw>
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:08.982987" level="INFO">${search_value} = mobile test</msg>
+<var>${search_value}</var>
+<arg>${SEARCH_BOX}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-26T16:48:08.974111" elapsed="0.008904"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${search_value}</arg>
+<arg>mobile test</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-09-26T16:48:08.983157" elapsed="0.000148"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:09.051047" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="mobile_touch_simulation.png"&gt;&lt;img src="mobile_touch_simulation.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-09-26T16:48:09.051172" level="INFO">${screenshot_touch} = /Users/vanvo/Documents/sdet-technical-exercise/reports/mobile/mobile_touch_simulation.png</msg>
+<var>${screenshot_touch}</var>
+<arg>mobile_touch_simulation.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T16:48:08.983373" elapsed="0.067838"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:48:09.051533" level="INFO">Mobile touch simulation completed</msg>
+<arg>Mobile touch simulation completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:48:09.051442" elapsed="0.000119"/>
+</kw>
+<kw name="Teardown Mobile Browser" type="TEARDOWN">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:09.093689" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="MOBILE_SIM_003_Test%20Mobile%20Touch%20Simulation_teardown.png"&gt;&lt;img src="MOBILE_SIM_003_Test%20Mobile%20Touch%20Simulation_teardown.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T16:48:09.051993" elapsed="0.041763"/>
+</kw>
+<msg time="2025-09-26T16:48:09.093836" level="INFO">${screenshot_taken} = True</msg>
+<var>${screenshot_taken}</var>
+<arg>Capture Page Screenshot</arg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-26T16:48:09.051907" elapsed="0.041943"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-09-26T16:48:09.093952" elapsed="0.070929"/>
+</kw>
+<doc>Cleanup browser after mobile simulation</doc>
+<status status="PASS" start="2025-09-26T16:48:09.051733" elapsed="0.113281"/>
+</kw>
+<doc>Test mobile touch simulation using JavaScript</doc>
+<tag>mobile</tag>
+<tag>simulation</tag>
+<tag>touch</tag>
+<tag>working</tag>
+<status status="PASS" start="2025-09-26T16:48:04.919453" elapsed="4.245614"/>
+</test>
+<test id="s1-t4" name="MOBILE_SIM_004_Test Mobile User Agent Simulation" line="84">
+<kw name="Setup Mobile Browser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:09.165929" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-26T16:48:09.165816" elapsed="3.068064"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-09-26T16:48:12.234858" elapsed="0.491990"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2025-09-26T16:48:12.727312" elapsed="0.001448"/>
+</kw>
+<doc>Setup browser for mobile simulation</doc>
+<status status="PASS" start="2025-09-26T16:48:09.165649" elapsed="3.563256"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:12.729402" level="INFO">Opening url 'https://demo.nopcommerce.com'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-26T16:48:12.729176" elapsed="0.379944"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:13.109653" level="INFO">Executing JavaScript:
+Object.defineProperty(navigator, 'userAgent', {value: 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1',configurable: false});
+Without any arguments.</msg>
+<arg>Object.defineProperty(navigator, 'userAgent', {</arg>
+<arg>value: 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1',</arg>
+<arg>configurable: false</arg>
+<arg>});</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-09-26T16:48:13.109332" elapsed="0.010431"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:13.120177" level="INFO">Executing JavaScript:
+return navigator.userAgent;
+Without any arguments.</msg>
+<msg time="2025-09-26T16:48:13.122112" level="INFO">${user_agent} = Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1</msg>
+<var>${user_agent}</var>
+<arg>return navigator.userAgent;</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-09-26T16:48:13.119919" elapsed="0.002214"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:48:13.122340" level="INFO">Simulated user agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1</msg>
+<arg>Simulated user agent: ${user_agent}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:48:13.122235" elapsed="0.000131"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${user_agent}</arg>
+<arg>iPhone</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-09-26T16:48:13.122447" elapsed="0.000095"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>667</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2025-09-26T16:48:13.122613" elapsed="0.685555"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:13.874204" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="mobile_user_agent.png"&gt;&lt;img src="mobile_user_agent.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-09-26T16:48:13.874503" level="INFO">${screenshot_user_agent} = /Users/vanvo/Documents/sdet-technical-exercise/reports/mobile/mobile_user_agent.png</msg>
+<var>${screenshot_user_agent}</var>
+<arg>mobile_user_agent.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T16:48:13.809038" elapsed="0.065482"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:48:13.874749" level="INFO">Mobile user agent simulation completed</msg>
+<arg>Mobile user agent simulation completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:48:13.874666" elapsed="0.000104"/>
+</kw>
+<kw name="Teardown Mobile Browser" type="TEARDOWN">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:13.920582" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="MOBILE_SIM_004_Test%20Mobile%20User%20Agent%20Simulation_teardown.png"&gt;&lt;img src="MOBILE_SIM_004_Test%20Mobile%20User%20Agent%20Simulation_teardown.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T16:48:13.875212" elapsed="0.045431"/>
+</kw>
+<msg time="2025-09-26T16:48:13.920716" level="INFO">${screenshot_taken} = True</msg>
+<var>${screenshot_taken}</var>
+<arg>Capture Page Screenshot</arg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-26T16:48:13.875119" elapsed="0.045609"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-09-26T16:48:13.920822" elapsed="0.119056"/>
+</kw>
+<doc>Cleanup browser after mobile simulation</doc>
+<status status="PASS" start="2025-09-26T16:48:13.874921" elapsed="0.165066"/>
+</kw>
+<doc>Test mobile user agent simulation</doc>
+<tag>mobile</tag>
+<tag>simulation</tag>
+<tag>user-agent</tag>
+<tag>working</tag>
+<status status="PASS" start="2025-09-26T16:48:09.165356" elapsed="4.874669"/>
+</test>
+<test id="s1-t5" name="MOBILE_SIM_005_Test Mobile CSS Media Queries" line="106">
+<kw name="Setup Mobile Browser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:14.041433" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-26T16:48:14.041293" elapsed="1.939297"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-09-26T16:48:15.981065" elapsed="0.575287"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2025-09-26T16:48:16.557789" elapsed="0.000984"/>
+</kw>
+<doc>Setup browser for mobile simulation</doc>
+<status status="PASS" start="2025-09-26T16:48:14.041067" elapsed="2.517796"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:16.559111" level="INFO">Opening url 'https://demo.nopcommerce.com'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-26T16:48:16.558998" elapsed="0.559011"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-26T16:48:17.118322" level="INFO">@{viewports} = [ 320x568 | 375x667 | 414x896 | 768x1024 | 1920x1080 ]</msg>
+<var>@{viewports}</var>
+<arg>320x568</arg>
+<arg>375x667</arg>
+<arg>414x896</arg>
+<arg>768x1024</arg>
+<arg>1920x1080</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-26T16:48:17.118166" elapsed="0.000173"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Split String" owner="String">
+<msg time="2025-09-26T16:48:17.118789" level="INFO">${width} = 320</msg>
+<msg time="2025-09-26T16:48:17.118811" level="INFO">${height} = 568</msg>
+<var>${width}</var>
+<var>${height}</var>
+<arg>${viewport}</arg>
+<arg>x</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-09-26T16:48:17.118667" elapsed="0.000155"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>${width}</arg>
+<arg>${height}</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2025-09-26T16:48:17.118894" elapsed="0.723905"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:17.863650" level="INFO">Element '//img[@alt='nopCommerce demo store']' is displayed.</msg>
+<arg>${HOME_LOGO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-26T16:48:17.843615" elapsed="0.020142"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:17.874214" level="INFO">Element '//input[@id='small-searchterms']' is displayed.</msg>
+<arg>${SEARCH_BOX}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-26T16:48:17.863978" elapsed="0.010292"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:17.909325" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="mobile_breakpoint_320x568.png"&gt;&lt;img src="mobile_breakpoint_320x568.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-09-26T16:48:17.909416" level="INFO">${screenshot} = /Users/vanvo/Documents/sdet-technical-exercise/reports/mobile/mobile_breakpoint_320x568.png</msg>
+<var>${screenshot}</var>
+<arg>mobile_breakpoint_${viewport}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T16:48:17.874440" elapsed="0.034992"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:48:17.909709" level="INFO">Tested viewport: 320x568</msg>
+<arg>Tested viewport: ${viewport}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:48:17.909591" elapsed="0.000145"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-26T16:48:18.912241" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-26T16:48:17.909808" elapsed="1.002822"/>
+</kw>
+<var name="${viewport}">320x568</var>
+<status status="PASS" start="2025-09-26T16:48:17.118582" elapsed="1.794322"/>
+</iter>
+<iter>
+<kw name="Split String" owner="String">
+<msg time="2025-09-26T16:48:18.914528" level="INFO">${width} = 375</msg>
+<msg time="2025-09-26T16:48:18.914592" level="INFO">${height} = 667</msg>
+<var>${width}</var>
+<var>${height}</var>
+<arg>${viewport}</arg>
+<arg>x</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-09-26T16:48:18.913941" elapsed="0.000679"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>${width}</arg>
+<arg>${height}</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2025-09-26T16:48:18.914890" elapsed="0.339755"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:19.268497" level="INFO">Element '//img[@alt='nopCommerce demo store']' is displayed.</msg>
+<arg>${HOME_LOGO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-26T16:48:19.255311" elapsed="0.013296"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:19.279222" level="INFO">Element '//input[@id='small-searchterms']' is displayed.</msg>
+<arg>${SEARCH_BOX}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-26T16:48:19.268861" elapsed="0.010443"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:19.347161" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="mobile_breakpoint_375x667.png"&gt;&lt;img src="mobile_breakpoint_375x667.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-09-26T16:48:19.347248" level="INFO">${screenshot} = /Users/vanvo/Documents/sdet-technical-exercise/reports/mobile/mobile_breakpoint_375x667.png</msg>
+<var>${screenshot}</var>
+<arg>mobile_breakpoint_${viewport}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T16:48:19.279492" elapsed="0.067772"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:48:19.347497" level="INFO">Tested viewport: 375x667</msg>
+<arg>Tested viewport: ${viewport}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:48:19.347395" elapsed="0.000126"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-26T16:48:20.349669" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-26T16:48:19.347583" elapsed="1.002297"/>
+</kw>
+<var name="${viewport}">375x667</var>
+<status status="PASS" start="2025-09-26T16:48:18.913476" elapsed="1.436539"/>
+</iter>
+<iter>
+<kw name="Split String" owner="String">
+<msg time="2025-09-26T16:48:20.350890" level="INFO">${width} = 414</msg>
+<msg time="2025-09-26T16:48:20.350950" level="INFO">${height} = 896</msg>
+<var>${width}</var>
+<var>${height}</var>
+<arg>${viewport}</arg>
+<arg>x</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-09-26T16:48:20.350546" elapsed="0.000433"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>${width}</arg>
+<arg>${height}</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2025-09-26T16:48:20.351168" elapsed="0.342507"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:20.710772" level="INFO">Element '//img[@alt='nopCommerce demo store']' is displayed.</msg>
+<arg>${HOME_LOGO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-26T16:48:20.695516" elapsed="0.015392"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:20.722706" level="INFO">Element '//input[@id='small-searchterms']' is displayed.</msg>
+<arg>${SEARCH_BOX}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-26T16:48:20.711195" elapsed="0.011579"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:21.248057" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="mobile_breakpoint_414x896.png"&gt;&lt;img src="mobile_breakpoint_414x896.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-09-26T16:48:21.248129" level="INFO">${screenshot} = /Users/vanvo/Documents/sdet-technical-exercise/reports/mobile/mobile_breakpoint_414x896.png</msg>
+<var>${screenshot}</var>
+<arg>mobile_breakpoint_${viewport}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T16:48:20.722942" elapsed="0.525201"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:48:21.248360" level="INFO">Tested viewport: 414x896</msg>
+<arg>Tested viewport: ${viewport}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:48:21.248258" elapsed="0.000122"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-26T16:48:22.250293" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-26T16:48:21.248434" elapsed="1.002050"/>
+</kw>
+<var name="${viewport}">414x896</var>
+<status status="PASS" start="2025-09-26T16:48:20.350305" elapsed="1.900382"/>
+</iter>
+<iter>
+<kw name="Split String" owner="String">
+<msg time="2025-09-26T16:48:22.251534" level="INFO">${width} = 768</msg>
+<msg time="2025-09-26T16:48:22.251584" level="INFO">${height} = 1024</msg>
+<var>${width}</var>
+<var>${height}</var>
+<arg>${viewport}</arg>
+<arg>x</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-09-26T16:48:22.251209" elapsed="0.000402"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>${width}</arg>
+<arg>${height}</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2025-09-26T16:48:22.251803" elapsed="0.333058"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:22.595791" level="INFO">Element '//img[@alt='nopCommerce demo store']' is displayed.</msg>
+<arg>${HOME_LOGO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-26T16:48:22.585102" elapsed="0.010753"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:22.604363" level="INFO">Element '//input[@id='small-searchterms']' is displayed.</msg>
+<arg>${SEARCH_BOX}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-26T16:48:22.596006" elapsed="0.008403"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:22.782313" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="mobile_breakpoint_768x1024.png"&gt;&lt;img src="mobile_breakpoint_768x1024.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-09-26T16:48:22.782389" level="INFO">${screenshot} = /Users/vanvo/Documents/sdet-technical-exercise/reports/mobile/mobile_breakpoint_768x1024.png</msg>
+<var>${screenshot}</var>
+<arg>mobile_breakpoint_${viewport}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T16:48:22.604529" elapsed="0.177875"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:48:22.782621" level="INFO">Tested viewport: 768x1024</msg>
+<arg>Tested viewport: ${viewport}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:48:22.782528" elapsed="0.000116"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-26T16:48:23.784552" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-26T16:48:22.782705" elapsed="1.001944"/>
+</kw>
+<var name="${viewport}">768x1024</var>
+<status status="PASS" start="2025-09-26T16:48:22.250973" elapsed="1.533738"/>
+</iter>
+<iter>
+<kw name="Split String" owner="String">
+<msg time="2025-09-26T16:48:23.785077" level="INFO">${width} = 1920</msg>
+<msg time="2025-09-26T16:48:23.785102" level="INFO">${height} = 1080</msg>
+<var>${width}</var>
+<var>${height}</var>
+<arg>${viewport}</arg>
+<arg>x</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-09-26T16:48:23.784936" elapsed="0.000179"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>${width}</arg>
+<arg>${height}</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2025-09-26T16:48:23.785196" elapsed="0.335152"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:24.131217" level="INFO">Element '//img[@alt='nopCommerce demo store']' is displayed.</msg>
+<arg>${HOME_LOGO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-26T16:48:24.120774" elapsed="0.010534"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:24.139751" level="INFO">Element '//input[@id='small-searchterms']' is displayed.</msg>
+<arg>${SEARCH_BOX}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-26T16:48:24.131500" elapsed="0.008316"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:24.408712" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="mobile_breakpoint_1920x1080.png"&gt;&lt;img src="mobile_breakpoint_1920x1080.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-09-26T16:48:24.408798" level="INFO">${screenshot} = /Users/vanvo/Documents/sdet-technical-exercise/reports/mobile/mobile_breakpoint_1920x1080.png</msg>
+<var>${screenshot}</var>
+<arg>mobile_breakpoint_${viewport}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T16:48:24.139971" elapsed="0.268841"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:48:24.409022" level="INFO">Tested viewport: 1920x1080</msg>
+<arg>Tested viewport: ${viewport}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:48:24.408932" elapsed="0.000111"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-26T16:48:25.410492" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-26T16:48:24.409099" elapsed="1.001546"/>
+</kw>
+<var name="${viewport}">1920x1080</var>
+<status status="PASS" start="2025-09-26T16:48:23.784844" elapsed="1.625865"/>
+</iter>
+<var>${viewport}</var>
+<value>@{viewports}</value>
+<status status="PASS" start="2025-09-26T16:48:17.118417" elapsed="8.292336"/>
+</for>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:48:25.411060" level="INFO">Mobile CSS media queries test completed</msg>
+<arg>Mobile CSS media queries test completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:48:25.410931" elapsed="0.000165"/>
+</kw>
+<kw name="Teardown Mobile Browser" type="TEARDOWN">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:25.679355" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="MOBILE_SIM_005_Test%20Mobile%20CSS%20Media%20Queries_teardown.png"&gt;&lt;img src="MOBILE_SIM_005_Test%20Mobile%20CSS%20Media%20Queries_teardown.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T16:48:25.412731" elapsed="0.266684"/>
+</kw>
+<msg time="2025-09-26T16:48:25.679485" level="INFO">${screenshot_taken} = True</msg>
+<var>${screenshot_taken}</var>
+<arg>Capture Page Screenshot</arg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-26T16:48:25.412475" elapsed="0.267022"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-09-26T16:48:25.679591" elapsed="0.091712"/>
+</kw>
+<doc>Cleanup browser after mobile simulation</doc>
+<status status="PASS" start="2025-09-26T16:48:25.411955" elapsed="0.359441"/>
+</kw>
+<doc>Test mobile CSS media queries and responsive design</doc>
+<tag>css</tag>
+<tag>mobile</tag>
+<tag>responsive</tag>
+<tag>simulation</tag>
+<tag>working</tag>
+<status status="PASS" start="2025-09-26T16:48:14.040652" elapsed="11.730782"/>
+</test>
+<test id="s1-t6" name="MOBILE_SIM_006_Test Mobile Performance Simulation" line="131">
+<kw name="Setup Mobile Browser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:25.774919" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-26T16:48:25.774713" elapsed="1.961110"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-09-26T16:48:27.736306" elapsed="0.620292"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2025-09-26T16:48:28.357026" elapsed="0.001239"/>
+</kw>
+<doc>Setup browser for mobile simulation</doc>
+<status status="PASS" start="2025-09-26T16:48:25.773479" elapsed="2.584873"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:28.359281" level="INFO">Opening url 'https://demo.nopcommerce.com'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-26T16:48:28.358510" elapsed="0.442704"/>
+</kw>
+<kw name="Get Time" owner="BuiltIn">
+<msg time="2025-09-26T16:48:28.801581" level="INFO">${start_time} = 1758880108</msg>
+<var>${start_time}</var>
+<arg>epoch</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="PASS" start="2025-09-26T16:48:28.801395" elapsed="0.000201"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>667</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2025-09-26T16:48:28.801661" elapsed="0.688150"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:29.490281" level="INFO">Typing text 'performance test' into text field '//input[@id='small-searchterms']'.</msg>
+<arg>${SEARCH_BOX}</arg>
+<arg>performance test</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-26T16:48:29.490009" elapsed="0.077403"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:29.567776" level="INFO">Clicking element '//button[contains(text(),'Search')]'.</msg>
+<arg>${SEARCH_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-26T16:48:29.567610" elapsed="0.507368"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:40.476384" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-09-26T16:48:40.476764" level="FAIL">Text 'performance test' did not appear in 10 seconds.</msg>
+<arg>performance test</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="FAIL" start="2025-09-26T16:48:30.075197" elapsed="10.404661">Text 'performance test' did not appear in 10 seconds.</status>
+</kw>
+<kw name="Get Time" owner="BuiltIn">
+<var>${end_time}</var>
+<arg>epoch</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="NOT RUN" start="2025-09-26T16:48:40.481011" elapsed="0.000207"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${duration}</var>
+<arg>${end_time} - ${start_time}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2025-09-26T16:48:40.481429" elapsed="0.000031"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Mobile performance test duration: ${duration} seconds</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-09-26T16:48:40.481536" elapsed="0.000015"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${duration} &lt; 10</arg>
+<arg>Performance test should complete within 10 seconds</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="NOT RUN" start="2025-09-26T16:48:40.481628" elapsed="0.000015"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<var>${screenshot_performance}</var>
+<arg>mobile_performance.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-09-26T16:48:40.482038" elapsed="0.000067"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Mobile performance simulation completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-09-26T16:48:40.482305" elapsed="0.000022"/>
+</kw>
+<kw name="Teardown Mobile Browser" type="TEARDOWN">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:40.517514" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="MOBILE_SIM_006_Test%20Mobile%20Performance%20Simulation_teardown.png"&gt;&lt;img src="MOBILE_SIM_006_Test%20Mobile%20Performance%20Simulation_teardown.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T16:48:40.484826" elapsed="0.032895"/>
+</kw>
+<msg time="2025-09-26T16:48:40.517895" level="INFO">${screenshot_taken} = True</msg>
+<var>${screenshot_taken}</var>
+<arg>Capture Page Screenshot</arg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-26T16:48:40.484659" elapsed="0.033250"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-09-26T16:48:40.518212" elapsed="0.075891"/>
+</kw>
+<doc>Cleanup browser after mobile simulation</doc>
+<status status="PASS" start="2025-09-26T16:48:40.483080" elapsed="0.111139"/>
+</kw>
+<doc>Test mobile performance simulation</doc>
+<tag>mobile</tag>
+<tag>performance</tag>
+<tag>simulation</tag>
+<tag>working</tag>
+<status status="FAIL" start="2025-09-26T16:48:25.772436" elapsed="14.821845">Text 'performance test' did not appear in 10 seconds.</status>
+</test>
+<test id="s1-t7" name="MOBILE_SIM_007_Test Mobile Accessibility Simulation" line="154">
+<kw name="Setup Mobile Browser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:40.595559" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-26T16:48:40.595392" elapsed="1.750104"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-09-26T16:48:42.347330" elapsed="0.763643"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2025-09-26T16:48:43.111138" elapsed="0.000922"/>
+</kw>
+<doc>Setup browser for mobile simulation</doc>
+<status status="PASS" start="2025-09-26T16:48:40.595180" elapsed="2.516988"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:43.112433" level="INFO">Opening url 'https://demo.nopcommerce.com'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-26T16:48:43.112328" elapsed="0.401150"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>667</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2025-09-26T16:48:43.513636" elapsed="0.723185"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:44.237573" level="INFO">Sending key(s) ('TAB',) to //input[@id='small-searchterms'] element.</msg>
+<msg time="2025-09-26T16:48:44.515363" level="INFO">Pressing special key TAB to element.</msg>
+<msg time="2025-09-26T16:48:44.515600" level="INFO">Releasing special key TAB.</msg>
+<arg>${SEARCH_BOX}</arg>
+<arg>TAB</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-09-26T16:48:44.237144" elapsed="0.335951"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:44.573641" level="INFO">Executing JavaScript:
+return document.activeElement.id;
+Without any arguments.</msg>
+<msg time="2025-09-26T16:48:44.576229" level="INFO">${active_element} = </msg>
+<var>${active_element}</var>
+<arg>return document.activeElement.id;</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-09-26T16:48:44.573352" elapsed="0.002902"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:48:44.576530" level="INFO">Active element after tab: </msg>
+<arg>Active element after tab: ${active_element}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:48:44.576383" elapsed="0.000173"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-09-26T16:48:44.576703" level="INFO">Length is 0.</msg>
+<msg time="2025-09-26T16:48:44.576799" level="FAIL">'' should not be empty.</msg>
+<arg>${active_element}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="FAIL" start="2025-09-26T16:48:44.576631" elapsed="0.000206">'' should not be empty.</status>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<var>${aria_labels}</var>
+<arg>//*[@aria-label]</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-26T16:48:44.576907" elapsed="0.000012"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Found ${aria_labels} elements with ARIA labels</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-09-26T16:48:44.576967" elapsed="0.000010"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<var>${screenshot_accessibility}</var>
+<arg>mobile_accessibility.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-09-26T16:48:44.577035" elapsed="0.000013"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Mobile accessibility simulation completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-09-26T16:48:44.577104" elapsed="0.000010"/>
+</kw>
+<kw name="Teardown Mobile Browser" type="TEARDOWN">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:44.609679" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="MOBILE_SIM_007_Test%20Mobile%20Accessibility%20Simulation_teardown.png"&gt;&lt;img src="MOBILE_SIM_007_Test%20Mobile%20Accessibility%20Simulation_teardown.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T16:48:44.577671" elapsed="0.032078"/>
+</kw>
+<msg time="2025-09-26T16:48:44.609824" level="INFO">${screenshot_taken} = True</msg>
+<var>${screenshot_taken}</var>
+<arg>Capture Page Screenshot</arg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-26T16:48:44.577571" elapsed="0.032265"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-09-26T16:48:44.609933" elapsed="0.078135"/>
+</kw>
+<doc>Cleanup browser after mobile simulation</doc>
+<status status="PASS" start="2025-09-26T16:48:44.577347" elapsed="0.110848"/>
+</kw>
+<doc>Test mobile accessibility features</doc>
+<tag>accessibility</tag>
+<tag>mobile</tag>
+<tag>simulation</tag>
+<tag>working</tag>
+<status status="FAIL" start="2025-09-26T16:48:40.594755" elapsed="4.093479">'' should not be empty.</status>
+</test>
+<test id="s1-t8" name="MOBILE_SIM_008_Test Mobile Gesture Simulation" line="176">
+<kw name="Setup Mobile Browser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:44.689563" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-26T16:48:44.689429" elapsed="2.209582"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-09-26T16:48:46.899722" elapsed="0.535568"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2025-09-26T16:48:47.435436" elapsed="0.000858"/>
+</kw>
+<doc>Setup browser for mobile simulation</doc>
+<status status="PASS" start="2025-09-26T16:48:44.689216" elapsed="2.747172"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:47.436651" level="INFO">Opening url 'https://demo.nopcommerce.com'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-26T16:48:47.436547" elapsed="0.553836"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>667</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2025-09-26T16:48:47.990546" elapsed="0.728368"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:48.719684" level="INFO">Executing JavaScript:
+// Simulate mobile swipe gesturesfunction simulateSwipe(startX, startY, endX, endY, duration) {var element = document.elementFromPoint(startX, startY);if (element) {var touchStart = new Touch({identifier: Date.now(),target: element,clientX: startX,clientY: startY});var touchEnd = new Touch({identifier: Date.now(),target: element,clientX: endX,clientY: endY});var touchStartEvent = new TouchEvent('touchstart', { touches: [touchStart] });var touchEndEvent = new TouchEvent('touchend', { touches: [touchEnd] });element.dispatchEvent(touchStartEvent);setTimeout(() =&gt; element.dispatchEvent(touchEndEvent), duration);}}
+Without any arguments.</msg>
+<arg>// Simulate mobile swipe gestures</arg>
+<arg>function simulateSwipe(startX, startY, endX, endY, duration) {</arg>
+<arg>var element = document.elementFromPoint(startX, startY);</arg>
+<arg>if (element) {</arg>
+<arg>var touchStart = new Touch({</arg>
+<arg>identifier: Date.now(),</arg>
+<arg>target: element,</arg>
+<arg>clientX: startX,</arg>
+<arg>clientY: startY</arg>
+<arg>});</arg>
+<arg>var touchEnd = new Touch({</arg>
+<arg>identifier: Date.now(),</arg>
+<arg>target: element,</arg>
+<arg>clientX: endX,</arg>
+<arg>clientY: endY</arg>
+<arg>});</arg>
+<arg>var touchStartEvent = new TouchEvent('touchstart', { touches: [touchStart] });</arg>
+<arg>var touchEndEvent = new TouchEvent('touchend', { touches: [touchEnd] });</arg>
+<arg>element.dispatchEvent(touchStartEvent);</arg>
+<arg>setTimeout(() =&gt; element.dispatchEvent(touchEndEvent), duration);</arg>
+<arg>}</arg>
+<arg>}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-09-26T16:48:48.719134" elapsed="0.005526"/>
+</kw>
+<kw name="Get Window Size" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:48.726196" level="INFO">${viewport_size} = (500, 667)</msg>
+<var>${viewport_size}</var>
+<doc>Returns current window width and height as integers.</doc>
+<status status="PASS" start="2025-09-26T16:48:48.724892" elapsed="0.001328"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-26T16:48:48.726565" level="FAIL">TypeError: Expected argument 1 to be a dictionary, got tuple instead.</msg>
+<var>${width}</var>
+<arg>${viewport_size}</arg>
+<arg>width</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="FAIL" start="2025-09-26T16:48:48.726345" elapsed="0.000282">TypeError: Expected argument 1 to be a dictionary, got tuple instead.</status>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${height}</var>
+<arg>${viewport_size}</arg>
+<arg>height</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2025-09-26T16:48:48.726727" elapsed="0.000019"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>simulateSwipe(${width}*0.2, ${height}*0.5, ${width}*0.8, ${height}*0.5, 500);</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2025-09-26T16:48:48.726830" elapsed="0.000017"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-26T16:48:48.726920" elapsed="0.000017"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Mobile gesture simulation completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-09-26T16:48:48.727015" elapsed="0.000016"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<var>${screenshot_gestures}</var>
+<arg>mobile_gestures.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-09-26T16:48:48.727107" elapsed="0.000015"/>
+</kw>
+<kw name="Teardown Mobile Browser" type="TEARDOWN">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T16:48:48.788469" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="MOBILE_SIM_008_Test%20Mobile%20Gesture%20Simulation_teardown.png"&gt;&lt;img src="MOBILE_SIM_008_Test%20Mobile%20Gesture%20Simulation_teardown.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T16:48:48.727919" elapsed="0.060631"/>
+</kw>
+<msg time="2025-09-26T16:48:48.788632" level="INFO">${screenshot_taken} = True</msg>
+<var>${screenshot_taken}</var>
+<arg>Capture Page Screenshot</arg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-26T16:48:48.727588" elapsed="0.061057"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-09-26T16:48:48.788751" elapsed="0.071660"/>
+</kw>
+<doc>Cleanup browser after mobile simulation</doc>
+<status status="PASS" start="2025-09-26T16:48:48.727331" elapsed="0.133171"/>
+</kw>
+<doc>Test mobile gesture simulation using JavaScript</doc>
+<tag>gestures</tag>
+<tag>mobile</tag>
+<tag>simulation</tag>
+<tag>working</tag>
+<status status="FAIL" start="2025-09-26T16:48:44.688828" elapsed="4.171710">TypeError: Expected argument 1 to be a dictionary, got tuple instead.</status>
+</test>
+<kw name="Teardown Mobile Simulation Environment" type="TEARDOWN">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:48:48.861291" level="INFO">Mobile simulation environment teardown completed</msg>
+<arg>Mobile simulation environment teardown completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:48:48.861204" elapsed="0.000121"/>
+</kw>
+<doc>Cleanup mobile simulation environment</doc>
+<status status="PASS" start="2025-09-26T16:48:48.861034" elapsed="0.000330"/>
+</kw>
+<doc>Mobile Simulation Tests for SDET Technical Exercise
+Demonstrates mobile testing concepts using Chrome DevTools
+Simulates mobile behavior without requiring Appium server</doc>
+<status status="FAIL" start="2025-09-26T16:47:54.921536" elapsed="53.939848"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="3" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">accessibility</stat>
+<stat pass="1" fail="0" skip="0">css</stat>
+<stat pass="0" fail="1" skip="0">gestures</stat>
+<stat pass="5" fail="3" skip="0">mobile</stat>
+<stat pass="0" fail="1" skip="0">performance</stat>
+<stat pass="2" fail="0" skip="0">responsive</stat>
+<stat pass="5" fail="3" skip="0">simulation</stat>
+<stat pass="1" fail="0" skip="0">tablet</stat>
+<stat pass="1" fail="0" skip="0">touch</stat>
+<stat pass="1" fail="0" skip="0">user-agent</stat>
+<stat pass="5" fail="3" skip="0">working</stat>
+</tag>
+<suite>
+<stat pass="5" fail="3" skip="0" id="s1" name="Mobile Simulation Tests">Mobile Simulation Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

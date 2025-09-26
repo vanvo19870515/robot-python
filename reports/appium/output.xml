@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.9.19 on darwin)" generated="2025-09-26T16:46:08.413855" rpa="false" schemaversion="5">
+<suite id="s1" name="Appium Validation" source="/Users/vanvo/Documents/sdet-technical-exercise/tests/suites/appium_validation.robot">
+<kw name="Setup Appium Validation" type="SETUP">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-09-26T16:46:08.437188" level="INFO" html="true">Directory '&lt;a href="file:///Users/vanvo/Documents/sdet-technical-exercise/reports/appium"&gt;/Users/vanvo/Documents/sdet-technical-exercise/reports/appium&lt;/a&gt;' already exists.</msg>
+<arg>reports/appium</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-09-26T16:46:08.437091" elapsed="0.000128"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:08.437335" level="INFO">Appium validation environment setup completed</msg>
+<arg>Appium validation environment setup completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:08.437284" elapsed="0.000067"/>
+</kw>
+<doc>Setup Appium validation environment</doc>
+<status status="PASS" start="2025-09-26T16:46:08.436811" elapsed="0.000570"/>
+</kw>
+<test id="s1-t1" name="APPIUM_001_Validate Appium Installation" line="17">
+<kw name="Setup Validation" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:08.437747" level="INFO">Validation test setup completed</msg>
+<arg>Validation test setup completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:08.437712" elapsed="0.000051"/>
+</kw>
+<doc>Setup for individual validation tests</doc>
+<status status="PASS" start="2025-09-26T16:46:08.437609" elapsed="0.000182"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-26T16:46:08.437912" level="INFO">Starting process:
+appium --version</msg>
+<msg time="2025-09-26T16:46:08.440126" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-26T16:46:08.705287" level="INFO">Process completed.</msg>
+<msg time="2025-09-26T16:46:08.705649" level="INFO">${appium_version} = &lt;result object with rc 0&gt;</msg>
+<var>${appium_version}</var>
+<arg>appium --version</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-26T16:46:08.437843" elapsed="0.267833"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-09-26T16:46:08.706404" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${appium_version.rc}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-09-26T16:46:08.705961" elapsed="0.000476"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-09-26T16:46:08.706673" level="INFO">Length is 5.</msg>
+<arg>${appium_version.stdout}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-09-26T16:46:08.706494" elapsed="0.000197"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:08.706903" level="INFO">Appium version: 3.0.2</msg>
+<arg>Appium version: ${appium_version.stdout}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:08.706744" elapsed="0.000176"/>
+</kw>
+<kw name="Teardown Validation" type="TEARDOWN">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:08.707277" level="INFO">Validation test teardown completed</msg>
+<arg>Validation test teardown completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:08.707237" elapsed="0.000056"/>
+</kw>
+<doc>Cleanup after validation tests</doc>
+<status status="PASS" start="2025-09-26T16:46:08.707097" elapsed="0.000220"/>
+</kw>
+<doc>Test that Appium is properly installed and accessible</doc>
+<tag>appium</tag>
+<tag>setup</tag>
+<tag>validation</tag>
+<tag>working</tag>
+<status status="PASS" start="2025-09-26T16:46:08.437413" elapsed="0.269922"/>
+</test>
+<test id="s1-t2" name="APPIUM_002_Validate Appium Server Startup" line="25">
+<kw name="Setup Validation" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:08.708001" level="INFO">Validation test setup completed</msg>
+<arg>Validation test setup completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:08.707909" elapsed="0.000115"/>
+</kw>
+<doc>Setup for individual validation tests</doc>
+<status status="PASS" start="2025-09-26T16:46:08.707715" elapsed="0.000340"/>
+</kw>
+<kw name="Start Process" owner="Process">
+<msg time="2025-09-26T16:46:08.708339" level="INFO">Starting process:
+appium --port 4723 --log-level info</msg>
+<msg time="2025-09-26T16:46:08.710894" level="INFO">${appium_process} = &lt;Popen: returncode: None args: 'appium --port 4723 --log-level info'&gt;</msg>
+<var>${appium_process}</var>
+<arg>appium --port ${APPIUM_PORT} --log-level info</arg>
+<arg>shell=True</arg>
+<arg>alias=appium_server</arg>
+<doc>Starts a new process on background.</doc>
+<status status="PASS" start="2025-09-26T16:46:08.708115" elapsed="0.002832"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-26T16:46:11.713229" level="INFO">Slept 3 seconds.</msg>
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-26T16:46:08.711475" elapsed="3.001894"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-26T16:46:11.713967" level="INFO">Starting process:
+curl -s http://localhost:4723/wd/hub/status</msg>
+<msg time="2025-09-26T16:46:11.717883" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-26T16:46:11.747801" level="INFO">Process completed.</msg>
+<msg time="2025-09-26T16:46:11.748051" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>curl -s http://localhost:${APPIUM_PORT}/wd/hub/status</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-26T16:46:11.713599" elapsed="0.034479"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-09-26T16:46:11.748841" level="FAIL">'{"value":{"error":"unknown command","message":"The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource.","stacktrace":"UnknownCommandError: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource.\n    at catch404Handler (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/@appium/base-driver/lib/express/middleware.js:139:49)\n    at Layer.handleRequest (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/lib/layer.js:152:17)\n    at next (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/lib/route.js:157:13)\n    at Route.dispatch (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/lib/route.js:117:3)\n    at handle (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:435:11)\n    at Layer.handleRequest (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/lib/layer.js:152:17)\n    at /Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:295:15\n    at param (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:600:14)\n    at param (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:610:14)\n    at processParams (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:664:3)\n    at next (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:291:5)\n    at logger (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/morgan/index.js:144:5)\n    at Layer.handleRequest (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/lib/layer.js:152:17)\n    at trimPrefix (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:342:13)\n    at /Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:297:9\n    at processParams (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:582:12)\n    at next (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:291:5)\n    at jsonParser (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/body-parser/lib/types/json.js:100:7)\n    at Layer.handleRequest (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/lib/layer.js:152:17)\n    at trimPrefix (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:342:13)\n    at /Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:297:9\n    at processParams (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:582:12)"}}' does not contain '"ready"'</msg>
+<arg>${result.stdout}</arg>
+<arg>"ready"</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-09-26T16:46:11.748364" elapsed="0.000613">'{"value":{"error":"unknown command","message":"The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource.","stacktrace":"UnknownCommandError: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource.\n    at catch404Handler (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/@appium/base-driver/lib/express/middleware.js:139:49)\n    at Layer.handleRequest (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/lib/layer.js:152:17)\n    at next (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/lib/route.js:157:13)\n    at Route.dispatch (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/lib/route.js:117:3)\n    at handle (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:435:11)\n    at Layer.handleRequest (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/lib/layer.js:152:17)\n    at /Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:295:15\n    at param (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:600:14)\n    at param (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:610:14)\n    at processParams (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:664:3)\n    at next (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:291:5)\n    at logger (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/morgan/index.js:144:5)\n    at Layer.handleRequest (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/lib/layer.js:152:17)\n    at trimPrefix (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:342:13)\n    at /Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:297:9\n    at processParams (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:582:12)\n    at next (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:291:5)\n    at jsonParser (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/body-parser/lib/types/json.js:100:7)\n    at Layer.handleRequest (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/lib/layer.js:152:17)\n    at trimPrefix (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:342:13)\n    at /Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:297:9\n    at processParams (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:582:12)"}}' does not contain '"ready"'</status>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>"message"</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2025-09-26T16:46:11.749066" elapsed="0.000011"/>
+</kw>
+<kw name="Terminate Process" owner="Process">
+<arg>${appium_process}</arg>
+<doc>Stops the process gracefully or forcefully.</doc>
+<status status="NOT RUN" start="2025-09-26T16:46:11.749137" elapsed="0.000011"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-09-26T16:46:11.749201" elapsed="0.000009"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Appium server started and stopped successfully</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-09-26T16:46:11.749263" elapsed="0.000008"/>
+</kw>
+<kw name="Teardown Validation" type="TEARDOWN">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:11.749682" level="INFO">Validation test teardown completed</msg>
+<arg>Validation test teardown completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:11.749625" elapsed="0.000081"/>
+</kw>
+<doc>Cleanup after validation tests</doc>
+<status status="PASS" start="2025-09-26T16:46:11.749466" elapsed="0.000270"/>
+</kw>
+<doc>Test that Appium server can start successfully</doc>
+<tag>appium</tag>
+<tag>server</tag>
+<tag>startup</tag>
+<tag>working</tag>
+<status status="FAIL" start="2025-09-26T16:46:08.707501" elapsed="3.042257">'{"value":{"error":"unknown command","message":"The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource.","stacktrace":"UnknownCommandError: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource.\n    at catch404Handler (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/@appium/base-driver/lib/express/middleware.js:139:49)\n    at Layer.handleRequest (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/lib/layer.js:152:17)\n    at next (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/lib/route.js:157:13)\n    at Route.dispatch (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/lib/route.js:117:3)\n    at handle (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:435:11)\n    at Layer.handleRequest (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/lib/layer.js:152:17)\n    at /Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:295:15\n    at param (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:600:14)\n    at param (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:610:14)\n    at processParams (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:664:3)\n    at next (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:291:5)\n    at logger (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/morgan/index.js:144:5)\n    at Layer.handleRequest (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/lib/layer.js:152:17)\n    at trimPrefix (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:342:13)\n    at /Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:297:9\n    at processParams (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:582:12)\n    at next (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:291:5)\n    at jsonParser (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/body-parser/lib/types/json.js:100:7)\n    at Layer.handleRequest (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/lib/layer.js:152:17)\n    at trimPrefix (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:342:13)\n    at /Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:297:9\n    at processParams (/Users/vanvo/npm-global/lib/node_modules/appium/node_modules/router/index.js:582:12)"}}' does not contain '"ready"'</status>
+</test>
+<test id="s1-t3" name="APPIUM_003_Validate MobileUtils Library" line="42">
+<kw name="Setup Validation" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:11.750485" level="INFO">Validation test setup completed</msg>
+<arg>Validation test setup completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:11.750433" elapsed="0.000074"/>
+</kw>
+<doc>Setup for individual validation tests</doc>
+<status status="PASS" start="2025-09-26T16:46:11.750217" elapsed="0.000319"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Import Library" owner="BuiltIn">
+<msg time="2025-09-26T16:46:11.750914" level="FAIL">Library '../../libraries/custom/MobileUtils.py' does not exist.</msg>
+<arg>../../libraries/custom/MobileUtils.py</arg>
+<doc>Imports a library with the given name and optional arguments.</doc>
+<status status="FAIL" start="2025-09-26T16:46:11.750713" elapsed="0.000247">Library '../../libraries/custom/MobileUtils.py' does not exist.</status>
+</kw>
+<msg time="2025-09-26T16:46:11.751011" level="INFO">${mobile_utils_loaded} = False</msg>
+<var>${mobile_utils_loaded}</var>
+<arg>Import Library</arg>
+<arg>../../libraries/custom/MobileUtils.py</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-26T16:46:11.750614" elapsed="0.000408"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<msg time="2025-09-26T16:46:11.751182" level="FAIL">'False' should be true.</msg>
+<arg>${mobile_utils_loaded}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="FAIL" start="2025-09-26T16:46:11.751086" elapsed="0.000122">'False' should be true.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>MobileUtils library loaded successfully</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-09-26T16:46:11.751273" elapsed="0.000009"/>
+</kw>
+<kw name="Teardown Validation" type="TEARDOWN">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:11.751653" level="INFO">Validation test teardown completed</msg>
+<arg>Validation test teardown completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:11.751550" elapsed="0.000135"/>
+</kw>
+<doc>Cleanup after validation tests</doc>
+<status status="PASS" start="2025-09-26T16:46:11.751411" elapsed="0.000314"/>
+</kw>
+<doc>Test that MobileUtils library loads correctly</doc>
+<tag>appium</tag>
+<tag>library</tag>
+<tag>mobileutils</tag>
+<tag>working</tag>
+<status status="FAIL" start="2025-09-26T16:46:11.749955" elapsed="0.001808">'False' should be true.</status>
+</test>
+<test id="s1-t4" name="APPIUM_004_Validate Appium Configuration" line="50">
+<kw name="Setup Validation" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:11.752634" level="INFO">Validation test setup completed</msg>
+<arg>Validation test setup completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:11.752567" elapsed="0.000095"/>
+</kw>
+<doc>Setup for individual validation tests</doc>
+<status status="PASS" start="2025-09-26T16:46:11.752347" elapsed="0.000351"/>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-09-26T16:46:11.752937" level="INFO" html="true">File '&lt;a href="file:///Users/vanvo/Documents/sdet-technical-exercise/config/appium.yaml"&gt;/Users/vanvo/Documents/sdet-technical-exercise/config/appium.yaml&lt;/a&gt;' exists.</msg>
+<arg>config/appium.yaml</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-09-26T16:46:11.752761" elapsed="0.000208"/>
+</kw>
+<kw name="Get File Size" owner="OperatingSystem">
+<msg time="2025-09-26T16:46:11.753146" level="INFO" html="true">Size of file '&lt;a href="file:///Users/vanvo/Documents/sdet-technical-exercise/config/appium.yaml"&gt;/Users/vanvo/Documents/sdet-technical-exercise/config/appium.yaml&lt;/a&gt;' is 2679 bytes.</msg>
+<msg time="2025-09-26T16:46:11.753198" level="INFO">${config_size} = 2679</msg>
+<var>${config_size}</var>
+<arg>config/appium.yaml</arg>
+<doc>Returns and logs file size as an integer in bytes.</doc>
+<status status="PASS" start="2025-09-26T16:46:11.753053" elapsed="0.000156"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${config_size} &gt; 100</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-09-26T16:46:11.753277" elapsed="0.000122"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:11.753546" level="INFO">Appium configuration file is valid (size: 2679 bytes)</msg>
+<arg>Appium configuration file is valid (size: ${config_size} bytes)</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:11.753466" elapsed="0.000101"/>
+</kw>
+<kw name="Teardown Validation" type="TEARDOWN">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:11.753883" level="INFO">Validation test teardown completed</msg>
+<arg>Validation test teardown completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:11.753837" elapsed="0.000067"/>
+</kw>
+<doc>Cleanup after validation tests</doc>
+<status status="PASS" start="2025-09-26T16:46:11.753700" elapsed="0.000233"/>
+</kw>
+<doc>Test that Appium configuration files are valid</doc>
+<tag>appium</tag>
+<tag>configuration</tag>
+<tag>working</tag>
+<tag>yaml</tag>
+<status status="PASS" start="2025-09-26T16:46:11.751945" elapsed="0.002007"/>
+</test>
+<test id="s1-t5" name="APPIUM_005_Validate UiAutomator2 Driver" line="58">
+<kw name="Setup Validation" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:11.754516" level="INFO">Validation test setup completed</msg>
+<arg>Validation test setup completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:11.754466" elapsed="0.000072"/>
+</kw>
+<doc>Setup for individual validation tests</doc>
+<status status="PASS" start="2025-09-26T16:46:11.754351" elapsed="0.000215"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-26T16:46:11.754712" level="INFO">Starting process:
+appium driver list</msg>
+<msg time="2025-09-26T16:46:11.756817" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-26T16:46:12.032958" level="INFO">Process completed.</msg>
+<msg time="2025-09-26T16:46:12.033241" level="INFO">${driver_check} = &lt;result object with rc 0&gt;</msg>
+<var>${driver_check}</var>
+<arg>appium driver list</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-26T16:46:11.754623" elapsed="0.278645"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-09-26T16:46:12.033976" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${driver_check.rc}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.033538" elapsed="0.000467"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-09-26T16:46:12.034279" level="FAIL">'' does not contain 'uiautomator2'</msg>
+<arg>${driver_check.stdout}</arg>
+<arg>uiautomator2</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-09-26T16:46:12.034062" elapsed="0.000253">'' does not contain 'uiautomator2'</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>UiAutomator2 driver is available: ${driver_check.stdout}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-09-26T16:46:12.034381" elapsed="0.000008"/>
+</kw>
+<kw name="Teardown Validation" type="TEARDOWN">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:12.034825" level="INFO">Validation test teardown completed</msg>
+<arg>Validation test teardown completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.034787" elapsed="0.000054"/>
+</kw>
+<doc>Cleanup after validation tests</doc>
+<status status="PASS" start="2025-09-26T16:46:12.034549" elapsed="0.000316"/>
+</kw>
+<doc>Test that UiAutomator2 driver is installed</doc>
+<tag>appium</tag>
+<tag>driver</tag>
+<tag>uiautomator2</tag>
+<tag>working</tag>
+<status status="FAIL" start="2025-09-26T16:46:11.754131" elapsed="0.280752">'' does not contain 'uiautomator2'</status>
+</test>
+<test id="s1-t6" name="APPIUM_006_Validate Mobile Test Files" line="66">
+<kw name="Setup Validation" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:12.035354" level="INFO">Validation test setup completed</msg>
+<arg>Validation test setup completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.035315" elapsed="0.000056"/>
+</kw>
+<doc>Setup for individual validation tests</doc>
+<status status="PASS" start="2025-09-26T16:46:12.035223" elapsed="0.000171"/>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-09-26T16:46:12.035583" level="INFO" html="true">File '&lt;a href="file:///Users/vanvo/Documents/sdet-technical-exercise/tests/suites/mobile_tests.robot"&gt;/Users/vanvo/Documents/sdet-technical-exercise/tests/suites/mobile_tests.robot&lt;/a&gt;' exists.</msg>
+<arg>tests/suites/mobile_tests.robot</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.035439" elapsed="0.000166"/>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-09-26T16:46:12.035716" level="INFO" html="true">File '&lt;a href="file:///Users/vanvo/Documents/sdet-technical-exercise/tests/suites/mobile_simulation_tests.robot"&gt;/Users/vanvo/Documents/sdet-technical-exercise/tests/suites/mobile_simulation_tests.robot&lt;/a&gt;' exists.</msg>
+<arg>tests/suites/mobile_simulation_tests.robot</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.035653" elapsed="0.000080"/>
+</kw>
+<kw name="Grep File" owner="OperatingSystem">
+<msg time="2025-09-26T16:46:12.035934" level="INFO" html="true">Reading file '&lt;a href="file:///Users/vanvo/Documents/sdet-technical-exercise/tests/suites/mobile_tests.robot"&gt;/Users/vanvo/Documents/sdet-technical-exercise/tests/suites/mobile_tests.robot&lt;/a&gt;'.</msg>
+<msg time="2025-09-26T16:46:12.036301" level="INFO">0 out of 308 lines matched</msg>
+<msg time="2025-09-26T16:46:12.036422" level="INFO">${mobile_tests} = </msg>
+<var>${mobile_tests}</var>
+<arg>tests/suites/mobile_tests.robot</arg>
+<arg>MOBILE\\d+</arg>
+<doc>Returns the lines of the specified file that match the ``pattern``.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.035777" elapsed="0.000674"/>
+</kw>
+<kw name="Grep File" owner="OperatingSystem">
+<msg time="2025-09-26T16:46:12.036665" level="INFO" html="true">Reading file '&lt;a href="file:///Users/vanvo/Documents/sdet-technical-exercise/tests/suites/mobile_simulation_tests.robot"&gt;/Users/vanvo/Documents/sdet-technical-exercise/tests/suites/mobile_simulation_tests.robot&lt;/a&gt;'.</msg>
+<msg time="2025-09-26T16:46:12.036752" level="INFO">0 out of 242 lines matched</msg>
+<msg time="2025-09-26T16:46:12.036793" level="INFO">${simulation_tests} = </msg>
+<var>${simulation_tests}</var>
+<arg>tests/suites/mobile_simulation_tests.robot</arg>
+<arg>MOBILE_SIM_\\d+</arg>
+<doc>Returns the lines of the specified file that match the ``pattern``.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.036521" elapsed="0.000281"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:12.036919" level="INFO">Mobile tests found: </msg>
+<arg>Mobile tests found: ${mobile_tests}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.036858" elapsed="0.000078"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:12.037029" level="INFO">Simulation tests found: </msg>
+<arg>Simulation tests found: ${simulation_tests}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.036980" elapsed="0.000064"/>
+</kw>
+<kw name="Teardown Validation" type="TEARDOWN">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:12.037257" level="INFO">Validation test teardown completed</msg>
+<arg>Validation test teardown completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.037224" elapsed="0.000048"/>
+</kw>
+<doc>Cleanup after validation tests</doc>
+<status status="PASS" start="2025-09-26T16:46:12.037125" elapsed="0.000173"/>
+</kw>
+<doc>Test that mobile test files are properly structured</doc>
+<tag>appium</tag>
+<tag>structure</tag>
+<tag>tests</tag>
+<tag>working</tag>
+<status status="PASS" start="2025-09-26T16:46:12.035026" elapsed="0.002287"/>
+</test>
+<test id="s1-t7" name="APPIUM_007_Validate Environment Variables" line="78">
+<kw name="Setup Validation" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:12.037702" level="INFO">Validation test setup completed</msg>
+<arg>Validation test setup completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.037669" elapsed="0.000054"/>
+</kw>
+<doc>Setup for individual validation tests</doc>
+<status status="PASS" start="2025-09-26T16:46:12.037585" elapsed="0.000160"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Environment Variable Should Be Set" owner="OperatingSystem">
+<msg time="2025-09-26T16:46:12.037967" level="INFO">Environment variable 'PATH' is set to '/Users/vanvo/.pyenv/versions/3.9.19/bin:/opt/homebrew/Cellar/pyenv/2.6.3/libexec:/opt/homebrew/Cellar/pyenv/2.6.3/plugins/python-build/bin:/Users/vanvo/npm-global/bin:/Users/vanvo/npm-global/bin:/Users/vanvo/npm-global/bin:/Users/vanvo/npm-global/bin:/Users/vanvo/.pyenv/shims:/Users/vanvo/.pyenv/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/vanvo/.pyenv/bin:/Users/vanvo/Library/Application Support/JetBrains/Toolbox/scripts'.</msg>
+<arg>PATH</arg>
+<doc>Fails if the specified environment variable is not set.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.037914" elapsed="0.000072"/>
+</kw>
+<msg time="2025-09-26T16:46:12.038017" level="INFO">${path_set} = True</msg>
+<var>${path_set}</var>
+<arg>Environment Variable Should Be Set</arg>
+<arg>PATH</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.037839" elapsed="0.000186"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${path_set}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.038067" elapsed="0.000053"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-26T16:46:12.038237" level="INFO">Starting process:
+which appium</msg>
+<msg time="2025-09-26T16:46:12.040500" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-26T16:46:12.044859" level="INFO">Process completed.</msg>
+<msg time="2025-09-26T16:46:12.045100" level="INFO">${appium_in_path} = &lt;result object with rc 0&gt;</msg>
+<var>${appium_in_path}</var>
+<arg>which appium</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.038169" elapsed="0.006961"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-09-26T16:46:12.046089" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${appium_in_path.rc}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.045511" elapsed="0.000612"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:12.046262" level="INFO">Appium is available in PATH</msg>
+<arg>Appium is available in PATH</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.046213" elapsed="0.000073"/>
+</kw>
+<kw name="Teardown Validation" type="TEARDOWN">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:12.046578" level="INFO">Validation test teardown completed</msg>
+<arg>Validation test teardown completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.046541" elapsed="0.000054"/>
+</kw>
+<doc>Cleanup after validation tests</doc>
+<status status="PASS" start="2025-09-26T16:46:12.046423" elapsed="0.000194"/>
+</kw>
+<doc>Test environment variables for mobile testing</doc>
+<tag>appium</tag>
+<tag>environment</tag>
+<tag>variables</tag>
+<tag>working</tag>
+<status status="PASS" start="2025-09-26T16:46:12.037411" elapsed="0.009221"/>
+</test>
+<test id="s1-t8" name="APPIUM_008_Validate Mobile Test Capabilities" line="89">
+<kw name="Setup Validation" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:12.047070" level="INFO">Validation test setup completed</msg>
+<arg>Validation test setup completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.047028" elapsed="0.000060"/>
+</kw>
+<doc>Setup for individual validation tests</doc>
+<status status="PASS" start="2025-09-26T16:46:12.046930" elapsed="0.000181"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-09-26T16:46:12.047254" level="INFO" html="true">Getting file '&lt;a href="file:///Users/vanvo/Documents/sdet-technical-exercise/config/appium.yaml"&gt;/Users/vanvo/Documents/sdet-technical-exercise/config/appium.yaml&lt;/a&gt;'.</msg>
+<msg time="2025-09-26T16:46:12.047614" level="INFO">${appium_config} = # Appium Configuration for Mobile Testing
+# SDET Technical Exercise - Mobile Automation
+
+# Appium Server Configuration
+appium:
+  server:
+    host: "127.0.0.1"
+    port: 4723
+    log_level: "info"
+    ...</msg>
+<var>${appium_config}</var>
+<arg>config/appium.yaml</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.047161" elapsed="0.000474"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${appium_config}</arg>
+<arg>platform_name: "Android"</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.047736" elapsed="0.000120"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${appium_config}</arg>
+<arg>automation_name: "UiAutomator2"</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.047921" elapsed="0.000071"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${appium_config}</arg>
+<arg>app_package: "com.android.calculator2"</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.048046" elapsed="0.000063"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:12.048267" level="INFO">Mobile test capabilities are properly configured</msg>
+<arg>Mobile test capabilities are properly configured</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.048204" elapsed="0.000086"/>
+</kw>
+<kw name="Teardown Validation" type="TEARDOWN">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:12.048631" level="INFO">Validation test teardown completed</msg>
+<arg>Validation test teardown completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.048594" elapsed="0.000053"/>
+</kw>
+<doc>Cleanup after validation tests</doc>
+<status status="PASS" start="2025-09-26T16:46:12.048478" elapsed="0.000191"/>
+</kw>
+<doc>Test that mobile test capabilities are properly configured</doc>
+<tag>appium</tag>
+<tag>capabilities</tag>
+<tag>configuration</tag>
+<tag>working</tag>
+<status status="PASS" start="2025-09-26T16:46:12.046748" elapsed="0.001936"/>
+</test>
+<kw name="Teardown Appium Validation" type="TEARDOWN">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Process Should Be Running" owner="Process">
+<arg>appium_server</arg>
+<doc>Verifies that the process is running.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.049079" elapsed="0.000088"/>
+</kw>
+<msg time="2025-09-26T16:46:12.049203" level="INFO">${appium_running} = True</msg>
+<var>${appium_running}</var>
+<arg>Process Should Be Running</arg>
+<arg>appium_server</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.049011" elapsed="0.000201"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Terminate All Processes" owner="Process">
+<msg time="2025-09-26T16:46:12.049383" level="INFO">Gracefully terminating process.</msg>
+<msg time="2025-09-26T16:46:12.154570" level="INFO">Process completed.</msg>
+<doc>Terminates all still running processes started by this library.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.049342" elapsed="0.105346"/>
+</kw>
+<arg>${appium_running}</arg>
+<arg>Terminate All Processes</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.049262" elapsed="0.105472"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T16:46:12.155007" level="INFO">Appium validation environment teardown completed</msg>
+<arg>Appium validation environment teardown completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T16:46:12.154902" elapsed="0.000132"/>
+</kw>
+<doc>Cleanup Appium validation environment</doc>
+<status status="PASS" start="2025-09-26T16:46:12.048935" elapsed="0.106141"/>
+</kw>
+<doc>Appium Setup Validation Tests
+Validates that Appium is properly configured and ready for mobile testing</doc>
+<status status="FAIL" start="2025-09-26T16:46:08.415338" elapsed="3.739760"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="3" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="5" fail="3" skip="0">appium</stat>
+<stat pass="1" fail="0" skip="0">capabilities</stat>
+<stat pass="2" fail="0" skip="0">configuration</stat>
+<stat pass="0" fail="1" skip="0">driver</stat>
+<stat pass="1" fail="0" skip="0">environment</stat>
+<stat pass="0" fail="1" skip="0">library</stat>
+<stat pass="0" fail="1" skip="0">mobileutils</stat>
+<stat pass="0" fail="1" skip="0">server</stat>
+<stat pass="1" fail="0" skip="0">setup</stat>
+<stat pass="0" fail="1" skip="0">startup</stat>
+<stat pass="1" fail="0" skip="0">structure</stat>
+<stat pass="1" fail="0" skip="0">tests</stat>
+<stat pass="0" fail="1" skip="0">uiautomator2</stat>
+<stat pass="1" fail="0" skip="0">validation</stat>
+<stat pass="1" fail="0" skip="0">variables</stat>
+<stat pass="5" fail="3" skip="0">working</stat>
+<stat pass="1" fail="0" skip="0">yaml</stat>
+</tag>
+<suite>
+<stat pass="5" fail="3" skip="0" id="s1" name="Appium Validation">Appium Validation</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
