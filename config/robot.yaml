@@ -1,0 +1,85 @@
+# SDET Technical Exercise Configuration
+# Robot Framework Settings
+
+# Test Execution Settings
+test:
+  name: "SDET Technical Exercise"
+  documentation: "Comprehensive automation testing demonstration"
+  version: "1.0.0"
+  author: "Van Vo"
+
+# Browser Configuration
+browser:
+  name: "chrome"
+  headless: false
+  window_size: "1920x1080"
+  implicit_wait: 10
+  page_load_timeout: 30
+  script_timeout: 30
+
+# Mobile Configuration (for Appium)
+mobile:
+  platform: "Android"
+  device_name: "emulator-5554"
+  app_package: ""
+  app_activity: ""
+  automation_name: "UiAutomator2"
+
+# AI Configuration
+ai:
+  provider: "openai"  # Options: openai, anthropic, google
+  model: "gpt-4"
+  temperature: 0.7
+  max_tokens: 2000
+
+# Reporting Configuration
+reporting:
+  output_dir: "reports"
+  log_level: "INFO"
+  screenshot_on_failure: true
+  screenshot_on_error: true
+  allure_enabled: true
+
+# Test Data Configuration
+data:
+  test_data_dir: "tests/data"
+  screenshot_dir: "screenshots"
+  temp_dir: "temp"
+
+# Custom Libraries Configuration
+libraries:
+  custom:
+    - "libraries/custom/WebUtils.py"
+    - "libraries/custom/ApiUtils.py"
+    - "libraries/custom/DataUtils.py"
+  ai:
+    - "libraries/ai/AITestGenerator.py"
+    - "libraries/ai/AIVisualValidator.py"
+    - "libraries/ai/AINLPProcessor.py"
+
+# Environment Configuration
+environments:
+  dev:
+    base_url: "https://demo.nopcommerce.com"
+    api_url: "https://api.example.com"
+  staging:
+    base_url: "https://staging.example.com"
+    api_url: "https://api.staging.example.com"
+  prod:
+    base_url: "https://prod.example.com"
+    api_url: "https://api.prod.example.com"
+
+# Test Suite Configuration
+suites:
+  smoke:
+    include: ["tests/suites/smoke_*.robot"]
+    threads: 1
+  regression:
+    include: ["tests/suites/regression_*.robot"]
+    threads: 3
+  api:
+    include: ["tests/suites/api_*.robot"]
+    threads: 2
+  visual:
+    include: ["tests/suites/visual_*.robot"]
+    threads: 1

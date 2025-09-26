@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.9.19 on darwin)" generated="2025-09-26T15:55:12.146742" rpa="false" schemaversion="5">
+<suite id="s1" name="Demo Tests" source="/Users/vanvo/Documents/sdet-technical-exercise/tests/suites/demo_tests.robot">
+<kw name="Setup Test Environment" type="SETUP">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-09-26T15:55:12.245633" level="INFO" html="true">Directory '&lt;a href="file:///Users/vanvo/Documents/sdet-technical-exercise/screenshots"&gt;/Users/vanvo/Documents/sdet-technical-exercise/screenshots&lt;/a&gt;' already exists.</msg>
+<arg>screenshots</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-09-26T15:55:12.245513" elapsed="0.000154"/>
+</kw>
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-09-26T15:55:12.245814" level="INFO" html="true">Directory '&lt;a href="file:///Users/vanvo/Documents/sdet-technical-exercise/reports"&gt;/Users/vanvo/Documents/sdet-technical-exercise/reports&lt;/a&gt;' already exists.</msg>
+<arg>reports</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-09-26T15:55:12.245737" elapsed="0.000100"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T15:55:12.245943" level="INFO">Demo test environment setup completed</msg>
+<arg>Demo test environment setup completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T15:55:12.245894" elapsed="0.000069"/>
+</kw>
+<doc>Setup test environment before suite execution</doc>
+<status status="PASS" start="2025-09-26T15:55:12.245058" elapsed="0.000937"/>
+</kw>
+<test id="s1-t1" name="DEMO001_Verify Basic Navigation" line="22">
+<kw name="Setup Browser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:12.251895" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-26T15:55:12.246460" elapsed="3.512828"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-09-26T15:55:15.759913" elapsed="0.639073"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2025-09-26T15:55:16.399150" elapsed="0.000894"/>
+</kw>
+<doc>Setup browser for each test</doc>
+<status status="PASS" start="2025-09-26T15:55:12.246320" elapsed="4.153877"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:16.400586" level="INFO">Opening url 'https://demo.nopcommerce.com'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-26T15:55:16.400394" elapsed="0.584410"/>
+</kw>
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:17.015189" level="INFO">${title} = nopCommerce demo store. Home page title</msg>
+<var>${title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-09-26T15:55:16.985034" elapsed="0.030184"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${title}</arg>
+<arg>nopCommerce</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-09-26T15:55:17.015380" elapsed="0.001822"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:17.024913" level="INFO">Current page contains text 'Welcome to our store'.</msg>
+<arg>Welcome to our store</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2025-09-26T15:55:17.017310" elapsed="0.007669"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:17.274996" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="demo_navigation.png"&gt;&lt;img src="demo_navigation.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>demo_navigation.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T15:55:17.025116" elapsed="0.249960"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T15:55:17.275612" level="INFO">✅ Navigation test completed successfully</msg>
+<arg>✅ Navigation test completed successfully</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T15:55:17.275220" elapsed="0.000427"/>
+</kw>
+<kw name="Teardown Browser" type="TEARDOWN">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:17.516865" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="DEMO001_Verify%20Basic%20Navigation_teardown.png"&gt;&lt;img src="DEMO001_Verify%20Basic%20Navigation_teardown.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T15:55:17.276241" elapsed="0.240690"/>
+</kw>
+<msg time="2025-09-26T15:55:17.517010" level="INFO">${screenshot_taken} = True</msg>
+<var>${screenshot_taken}</var>
+<arg>Capture Page Screenshot</arg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-26T15:55:17.276136" elapsed="0.240886"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-09-26T15:55:17.517126" elapsed="0.110557"/>
+</kw>
+<doc>Cleanup browser after each test</doc>
+<status status="PASS" start="2025-09-26T15:55:17.275886" elapsed="0.352547"/>
+</kw>
+<doc>Demonstrate basic navigation and page validation</doc>
+<tag>demo</tag>
+<tag>navigation</tag>
+<tag>working</tag>
+<status status="PASS" start="2025-09-26T15:55:12.246036" elapsed="5.382518"/>
+</test>
+<test id="s1-t2" name="DEMO002_Verify Page Elements" line="32">
+<kw name="Setup Browser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:17.629473" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-26T15:55:17.629332" elapsed="2.350534"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-09-26T15:55:19.980445" elapsed="0.590923"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2025-09-26T15:55:20.571526" elapsed="0.000706"/>
+</kw>
+<doc>Setup browser for each test</doc>
+<status status="PASS" start="2025-09-26T15:55:17.629147" elapsed="2.943156"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:20.572517" level="INFO">Opening url 'https://demo.nopcommerce.com'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-26T15:55:20.572422" elapsed="0.632441"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:21.246798" level="INFO">Element '//img[@alt='nopCommerce demo store']' is displayed.</msg>
+<arg>${HOME_LOGO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-26T15:55:21.205085" elapsed="0.041797"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:21.254358" level="INFO">Element '//input[@id='small-searchterms']' is displayed.</msg>
+<arg>${SEARCH_BOX}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-26T15:55:21.247011" elapsed="0.007408"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:21.262255" level="INFO">Element '//span[@class='cart-label']' is displayed.</msg>
+<arg>${SHOPPING_CART}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-26T15:55:21.254693" elapsed="0.007621"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T15:55:21.262554" level="INFO">✅ Page elements verification completed</msg>
+<arg>✅ Page elements verification completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T15:55:21.262461" elapsed="0.000114"/>
+</kw>
+<kw name="Teardown Browser" type="TEARDOWN">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:21.508990" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="DEMO002_Verify%20Page%20Elements_teardown.png"&gt;&lt;img src="DEMO002_Verify%20Page%20Elements_teardown.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T15:55:21.263022" elapsed="0.246039"/>
+</kw>
+<msg time="2025-09-26T15:55:21.509147" level="INFO">${screenshot_taken} = True</msg>
+<var>${screenshot_taken}</var>
+<arg>Capture Page Screenshot</arg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-26T15:55:21.262938" elapsed="0.246222"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-09-26T15:55:21.509267" elapsed="0.070854"/>
+</kw>
+<doc>Cleanup browser after each test</doc>
+<status status="PASS" start="2025-09-26T15:55:21.262742" elapsed="0.317491"/>
+</kw>
+<doc>Demonstrate element verification and interaction</doc>
+<tag>demo</tag>
+<tag>elements</tag>
+<tag>working</tag>
+<status status="PASS" start="2025-09-26T15:55:17.628832" elapsed="3.951438"/>
+</test>
+<test id="s1-t3" name="DEMO003_Verify Search Box Interaction" line="44">
+<kw name="Setup Browser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:21.581128" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-26T15:55:21.580979" elapsed="1.963171"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-09-26T15:55:23.544574" elapsed="0.581948"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2025-09-26T15:55:24.126769" elapsed="0.000840"/>
+</kw>
+<doc>Setup browser for each test</doc>
+<status status="PASS" start="2025-09-26T15:55:21.580791" elapsed="2.546971"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:24.127990" level="INFO">Opening url 'https://demo.nopcommerce.com'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-26T15:55:24.127889" elapsed="0.629511"/>
+</kw>
+<kw name="Element Should Be Enabled" owner="SeleniumLibrary">
+<arg>${SEARCH_BOX}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-09-26T15:55:24.757549" elapsed="0.044795"/>
+</kw>
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:24.808910" level="INFO">${initial_value} = </msg>
+<var>${initial_value}</var>
+<arg>${SEARCH_BOX}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-26T15:55:24.802498" elapsed="0.006440"/>
+</kw>
+<kw name="Should Be Empty" owner="BuiltIn">
+<msg time="2025-09-26T15:55:24.809204" level="INFO">Length is 0.</msg>
+<arg>${initial_value}</arg>
+<doc>Verifies that the given item is empty.</doc>
+<status status="PASS" start="2025-09-26T15:55:24.809086" elapsed="0.000143"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:24.809402" level="INFO">Typing text 'demo' into text field '//input[@id='small-searchterms']'.</msg>
+<arg>${SEARCH_BOX}</arg>
+<arg>demo</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-26T15:55:24.809298" elapsed="0.078294"/>
+</kw>
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:24.894491" level="INFO">${entered_value} = demo</msg>
+<var>${entered_value}</var>
+<arg>${SEARCH_BOX}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-26T15:55:24.887728" elapsed="0.006788"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${entered_value}</arg>
+<arg>demo</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-09-26T15:55:24.894656" elapsed="0.000154"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T15:55:24.894944" level="INFO">✅ Search box interaction completed</msg>
+<arg>✅ Search box interaction completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T15:55:24.894891" elapsed="0.000076"/>
+</kw>
+<kw name="Teardown Browser" type="TEARDOWN">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:25.157513" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="DEMO003_Verify%20Search%20Box%20Interaction_teardown.png"&gt;&lt;img src="DEMO003_Verify%20Search%20Box%20Interaction_teardown.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T15:55:24.895402" elapsed="0.262184"/>
+</kw>
+<msg time="2025-09-26T15:55:25.157670" level="INFO">${screenshot_taken} = True</msg>
+<var>${screenshot_taken}</var>
+<arg>Capture Page Screenshot</arg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-26T15:55:24.895300" elapsed="0.262383"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-09-26T15:55:25.157786" elapsed="0.075475"/>
+</kw>
+<doc>Cleanup browser after each test</doc>
+<status status="PASS" start="2025-09-26T15:55:24.895126" elapsed="0.338229"/>
+</kw>
+<doc>Demonstrate form interaction and validation</doc>
+<tag>demo</tag>
+<tag>forms</tag>
+<tag>working</tag>
+<status status="PASS" start="2025-09-26T15:55:21.580483" elapsed="3.652911"/>
+</test>
+<test id="s1-t4" name="DEMO004_Verify Responsive Behavior" line="60">
+<kw name="Setup Browser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:25.234362" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-26T15:55:25.234215" elapsed="2.146139"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-09-26T15:55:27.380695" elapsed="0.601595"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2025-09-26T15:55:27.982445" elapsed="0.000759"/>
+</kw>
+<doc>Setup browser for each test</doc>
+<status status="PASS" start="2025-09-26T15:55:25.233990" elapsed="2.749402"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:27.983676" level="INFO">Opening url 'https://demo.nopcommerce.com'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-26T15:55:27.983516" elapsed="0.449086"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>375</arg>
+<arg>667</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2025-09-26T15:55:28.432792" elapsed="0.722552"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:29.174205" level="INFO">Element '//img[@alt='nopCommerce demo store']' is displayed.</msg>
+<arg>${HOME_LOGO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-26T15:55:29.155589" elapsed="0.018700"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>768</arg>
+<arg>1024</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2025-09-26T15:55:29.174449" elapsed="0.331549"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:29.518299" level="INFO">Element '//img[@alt='nopCommerce demo store']' is displayed.</msg>
+<arg>${HOME_LOGO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-26T15:55:29.506260" elapsed="0.012129"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2025-09-26T15:55:29.518605" elapsed="0.335786"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:29.864581" level="INFO">Element '//img[@alt='nopCommerce demo store']' is displayed.</msg>
+<arg>${HOME_LOGO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-26T15:55:29.854637" elapsed="0.010027"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T15:55:29.865043" level="INFO">✅ Responsive design test completed</msg>
+<arg>✅ Responsive design test completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T15:55:29.864876" elapsed="0.000205"/>
+</kw>
+<kw name="Teardown Browser" type="TEARDOWN">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:30.133594" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="DEMO004_Verify%20Responsive%20Behavior_teardown.png"&gt;&lt;img src="DEMO004_Verify%20Responsive%20Behavior_teardown.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T15:55:29.865782" elapsed="0.267881"/>
+</kw>
+<msg time="2025-09-26T15:55:30.133747" level="INFO">${screenshot_taken} = True</msg>
+<var>${screenshot_taken}</var>
+<arg>Capture Page Screenshot</arg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-26T15:55:29.865630" elapsed="0.268130"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-09-26T15:55:30.133856" elapsed="0.072220"/>
+</kw>
+<doc>Cleanup browser after each test</doc>
+<status status="PASS" start="2025-09-26T15:55:29.865336" elapsed="0.340842"/>
+</kw>
+<doc>Demonstrate responsive design testing</doc>
+<tag>demo</tag>
+<tag>responsive</tag>
+<tag>working</tag>
+<status status="PASS" start="2025-09-26T15:55:25.233614" elapsed="4.972599"/>
+</test>
+<test id="s1-t5" name="DEMO005_Verify Error Handling" line="75">
+<kw name="Setup Browser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:30.207104" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-26T15:55:30.206946" elapsed="2.037816"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-09-26T15:55:32.245105" elapsed="0.582579"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2025-09-26T15:55:32.827842" elapsed="0.000941"/>
+</kw>
+<doc>Setup browser for each test</doc>
+<status status="PASS" start="2025-09-26T15:55:30.206769" elapsed="2.622090"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:32.829255" level="INFO">Opening url 'https://demo.nopcommerce.com/nonexistent'</msg>
+<arg>${BASE_URL}/nonexistent</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-26T15:55:32.829107" elapsed="0.749963"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:33.686700" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-09-26T15:55:33.686852" level="FAIL">Page should have contained text 'Welcome to our store' but did not.</msg>
+<arg>Welcome to our store</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="FAIL" start="2025-09-26T15:55:33.579847" elapsed="0.108294">Page should have contained text 'Welcome to our store' but did not.</status>
+</kw>
+<msg time="2025-09-26T15:55:33.688237" level="INFO">${status} = False</msg>
+<var>${status}</var>
+<arg>Page Should Contain</arg>
+<arg>Welcome to our store</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-26T15:55:33.579588" elapsed="0.108662"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${status} == ${False}</arg>
+<arg>Expected page not found</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-09-26T15:55:33.688360" elapsed="0.000220"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T15:55:33.688725" level="INFO">✅ Error handling test completed</msg>
+<arg>✅ Error handling test completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T15:55:33.688652" elapsed="0.000095"/>
+</kw>
+<kw name="Teardown Browser" type="TEARDOWN">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:33.772325" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="DEMO005_Verify%20Error%20Handling_teardown.png"&gt;&lt;img src="DEMO005_Verify%20Error%20Handling_teardown.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T15:55:33.689252" elapsed="0.083135"/>
+</kw>
+<msg time="2025-09-26T15:55:33.772465" level="INFO">${screenshot_taken} = True</msg>
+<var>${screenshot_taken}</var>
+<arg>Capture Page Screenshot</arg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-26T15:55:33.689143" elapsed="0.083333"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-09-26T15:55:33.772566" elapsed="0.073167"/>
+</kw>
+<doc>Cleanup browser after each test</doc>
+<status status="PASS" start="2025-09-26T15:55:33.688944" elapsed="0.156873"/>
+</kw>
+<doc>Demonstrate error handling and recovery</doc>
+<tag>demo</tag>
+<tag>error-handling</tag>
+<tag>working</tag>
+<status status="PASS" start="2025-09-26T15:55:30.206474" elapsed="3.639377"/>
+</test>
+<test id="s1-t6" name="DEMO006_Verify Screenshot Capture" line="84">
+<kw name="Setup Browser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:33.846673" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-26T15:55:33.846484" elapsed="1.969151"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-09-26T15:55:35.815961" elapsed="0.594833"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2025-09-26T15:55:36.411047" elapsed="0.000919"/>
+</kw>
+<doc>Setup browser for each test</doc>
+<status status="PASS" start="2025-09-26T15:55:33.846289" elapsed="2.565764"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:36.412264" level="INFO">Opening url 'https://demo.nopcommerce.com'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-26T15:55:36.412169" elapsed="0.768054"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:37.487737" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="demo_screenshot.png"&gt;&lt;img src="demo_screenshot.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>demo_screenshot.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T15:55:37.180418" elapsed="0.307459"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T15:55:37.488203" level="INFO">Screenshot functionality working</msg>
+<arg>Screenshot functionality working</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T15:55:37.488095" elapsed="0.000130"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T15:55:37.488330" level="INFO">✅ Screenshot capture completed</msg>
+<arg>✅ Screenshot capture completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T15:55:37.488285" elapsed="0.000066"/>
+</kw>
+<kw name="Teardown Browser" type="TEARDOWN">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:37.732249" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="DEMO006_Verify%20Screenshot%20Capture_teardown.png"&gt;&lt;img src="DEMO006_Verify%20Screenshot%20Capture_teardown.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T15:55:37.488787" elapsed="0.243535"/>
+</kw>
+<msg time="2025-09-26T15:55:37.732402" level="INFO">${screenshot_taken} = True</msg>
+<var>${screenshot_taken}</var>
+<arg>Capture Page Screenshot</arg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-26T15:55:37.488698" elapsed="0.243716"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-09-26T15:55:37.732508" elapsed="0.066994"/>
+</kw>
+<doc>Cleanup browser after each test</doc>
+<status status="PASS" start="2025-09-26T15:55:37.488515" elapsed="0.311107"/>
+</kw>
+<doc>Demonstrate screenshot functionality</doc>
+<tag>demo</tag>
+<tag>screenshots</tag>
+<tag>working</tag>
+<status status="PASS" start="2025-09-26T15:55:33.846053" elapsed="3.953611"/>
+</test>
+<test id="s1-t7" name="DEMO007_Verify Dynamic Content" line="94">
+<kw name="Setup Browser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:37.800616" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-26T15:55:37.800467" elapsed="1.848349"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-09-26T15:55:39.649119" elapsed="0.631666"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2025-09-26T15:55:40.280952" elapsed="0.004055"/>
+</kw>
+<doc>Setup browser for each test</doc>
+<status status="PASS" start="2025-09-26T15:55:37.800272" elapsed="2.484866"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:40.285412" level="INFO">Opening url 'https://demo.nopcommerce.com'</msg>
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-09-26T15:55:40.285276" elapsed="0.589705"/>
+</kw>
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:40.907537" level="INFO">${current_url} = https://demo.nopcommerce.com/</msg>
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2025-09-26T15:55:40.875160" elapsed="0.032408"/>
+</kw>
+<kw name="Should Start With" owner="BuiltIn">
+<arg>${current_url}</arg>
+<arg>https://demo.nopcommerce.com</arg>
+<doc>Fails if the string ``str1`` does not start with the string ``str2``.</doc>
+<status status="PASS" start="2025-09-26T15:55:40.907706" elapsed="0.000128"/>
+</kw>
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:40.910116" level="INFO">${page_title} = nopCommerce demo store. Home page title</msg>
+<var>${page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-09-26T15:55:40.907917" elapsed="0.002227"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-09-26T15:55:40.910378" level="INFO">Length is 39.</msg>
+<arg>${page_title}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-09-26T15:55:40.910268" elapsed="0.000133"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:40.914956" level="INFO">${product_count} = 4</msg>
+<var>${product_count}</var>
+<arg>${PRODUCT_ITEM}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-09-26T15:55:40.910474" elapsed="0.004501"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T15:55:40.915157" level="INFO">Found 4 products on the page</msg>
+<arg>Found ${product_count} products on the page</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T15:55:40.915073" elapsed="0.000105"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T15:55:40.915280" level="INFO">✅ Dynamic content validation completed</msg>
+<arg>✅ Dynamic content validation completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T15:55:40.915236" elapsed="0.000065"/>
+</kw>
+<kw name="Teardown Browser" type="TEARDOWN">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-09-26T15:55:41.170764" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="DEMO007_Verify%20Dynamic%20Content_teardown.png"&gt;&lt;img src="DEMO007_Verify%20Dynamic%20Content_teardown.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-09-26T15:55:40.915742" elapsed="0.256283"/>
+</kw>
+<msg time="2025-09-26T15:55:41.172133" level="INFO">${screenshot_taken} = True</msg>
+<var>${screenshot_taken}</var>
+<arg>Capture Page Screenshot</arg>
+<arg>${TEST_NAME}_teardown.png</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-26T15:55:40.915646" elapsed="0.256502"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-09-26T15:55:41.172262" elapsed="0.072203"/>
+</kw>
+<doc>Cleanup browser after each test</doc>
+<status status="PASS" start="2025-09-26T15:55:40.915458" elapsed="0.329120"/>
+</kw>
+<doc>Demonstrate dynamic content validation</doc>
+<tag>demo</tag>
+<tag>dynamic</tag>
+<tag>working</tag>
+<status status="PASS" start="2025-09-26T15:55:37.800002" elapsed="3.444621"/>
+</test>
+<kw name="Teardown Test Environment" type="TEARDOWN">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-26T15:55:41.245475" level="INFO">Demo test environment teardown completed</msg>
+<arg>Demo test environment teardown completed</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-26T15:55:41.245406" elapsed="0.000097"/>
+</kw>
+<doc>Cleanup after suite execution</doc>
+<status status="PASS" start="2025-09-26T15:55:41.245238" elapsed="0.000305"/>
+</kw>
+<doc>Demo Tests for SDET Technical Exercise
+Showcases Robot Framework capabilities with Selenium</doc>
+<status status="PASS" start="2025-09-26T15:55:12.147474" elapsed="29.098094"/>
+</suite>
+<statistics>
+<total>
+<stat pass="7" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="7" fail="0" skip="0">demo</stat>
+<stat pass="1" fail="0" skip="0">dynamic</stat>
+<stat pass="1" fail="0" skip="0">elements</stat>
+<stat pass="1" fail="0" skip="0">error-handling</stat>
+<stat pass="1" fail="0" skip="0">forms</stat>
+<stat pass="1" fail="0" skip="0">navigation</stat>
+<stat pass="1" fail="0" skip="0">responsive</stat>
+<stat pass="1" fail="0" skip="0">screenshots</stat>
+<stat pass="7" fail="0" skip="0">working</stat>
+</tag>
+<suite>
+<stat pass="7" fail="0" skip="0" id="s1" name="Demo Tests">Demo Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
