@@ -1,0 +1,23 @@
+# Core testing frameworks
+robotframework==7.0.0
+robotframework-seleniumlibrary==6.2.0
+robotframework-appiumlibrary==2.0.0
+
+# Browser automation
+selenium==4.15.2
+webdriver-manager==4.0.1
+
+# Mobile automation
+appium-python-client==3.2.0
+
+# Visual testing with Applitools
+eyes-selenium==6.4.6
+
+# Reporting
+allure-robotframework==2.13.2
+
+# Notifications
+requests==2.32.5
+
+# Utilities
+python-dotenv==1.1.1
