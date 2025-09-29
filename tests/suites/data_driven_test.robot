@@ -12,11 +12,11 @@ ${BROWSER}            Chrome
 Login With Different Users
     [Documentation]    Test login functionality with multiple user credentials
     [Template]    Login Test Template
-    user1        password1        "True"
-    user2        password2        "True"
-    admin        adminpass        "True"
-    invalid      wrongpass        "False"
-    guest        guest123         "False"
+    user1        password1        True
+    user2        password2        True
+    admin        adminpass        True
+    invalid      wrongpass        False
+    guest        guest123         False
 
 Cookie Clicker Scenarios
     [Documentation]    Test different cookie clicking scenarios
@@ -61,11 +61,11 @@ Login Test Template
     Log    Expected: ${should_succeed}
 
     # For demo: pass if not invalid, fail if invalid
-    ${is_invalid}=    Evaluate    "${username}" == "invalid" or "${password}" == "wrongpass"
-    ${actual_result}=    Evaluate    not ${is_invalid}
+    ${is_invalid}=    Set Variable If    "${username}" == "invalid" or "${password}" == "wrongpass"    True    False
+    ${actual_result}=    Set Variable If    ${is_invalid} == "False"    True    False
 
-    # Convert expected to boolean
-    ${expected_result}=    Evaluate    "${should_succeed}".lower() == "true"
+    # Expected result
+    ${expected_result}=    Set Variable If    "${should_succeed}".lower() == "true"    True    False
 
     Should Be Equal    ${actual_result}    ${expected_result}
 
