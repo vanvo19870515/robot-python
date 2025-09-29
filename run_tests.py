@@ -164,11 +164,16 @@ class TestRunner:
     def run_robot_tests(self, test_file, success_message):
         """Execute Robot Framework tests with enhanced features"""
         try:
+            # Ensure output/allure directory exists for Allure results
+            allure_output_dir = os.path.join(self.project_root, "output", "allure")
+            os.makedirs(allure_output_dir, exist_ok=True)
+            
             # Build Robot command with Allure integration
             cmd = [
                 "robot",
                 "--outputdir", self.reports_dir,
                 "--loglevel", "INFO",
+                "--listener", f"allure_robotframework:{allure_output_dir}",
                 "--variable", f"APPLITOOLS_API_KEY:{os.getenv('APPLITOOLS_API_KEY', '')}",
                 "--pythonpath", os.path.join(self.project_root, "libraries"),
                 test_file
@@ -213,10 +218,13 @@ class TestRunner:
                 print("⚠️  Allure CLI not found. Install with: npm install -g allure-commandline")
                 return
 
+            # Use the correct allure results directory (output/allure)
+            allure_results_dir = os.path.join(self.project_root, "output", "allure")
+            
             # Generate report
             cmd = [
                 allure_cmd, "generate",
-                self.allure_results_dir,
+                allure_results_dir,
                 "--output", os.path.join(self.project_root, "allure-report"),
                 "--clean"
             ]
@@ -224,6 +232,7 @@ class TestRunner:
             subprocess.run(cmd, check=True)
             print("✅ Allure report generated successfully")
             print(f"📊 Report available at: {os.path.join(self.project_root, 'allure-report', 'index.html')}")
+            print(f"🚀 Or serve live with: allure serve {allure_results_dir}")
 
         except subprocess.CalledProcessError as e:
             print(f"⚠️  Failed to generate Allure report: {e}")

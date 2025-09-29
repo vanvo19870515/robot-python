@@ -52,6 +52,8 @@ Thumbs.db
 *.jpg
 *.jpeg
 allure-results/
+allure-report/
+output/
 node_modules/
 .pytest_cache/
 .coverage
