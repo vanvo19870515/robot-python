@@ -5,10 +5,16 @@ A comprehensive test automation framework featuring **Robot Framework**, **Selen
 ## 🎯 Features
 
 - **Web Testing**: Cookie Clicker game automation with Chrome browser
-- **Mobile Testing**: Android ApiDemos app automation
+- **Mobile Testing**: Android ApiDemos app automation with Appium
+- **Data-Driven Testing**: Parameterized test execution with multiple datasets
+- **Page Object Model**: Maintainable test structure with reusable components
+- **Performance Testing**: Load time, response time, and resource usage monitoring
+- **Security Testing**: XSS, SQL injection, and HTTPS validation
 - **Visual Validation**: Applitools Eyes integration for screenshot comparison
-- **Advanced Reporting**: Allure reports with detailed test results
+- **Advanced Reporting**: Allure reports with detailed test results and analytics
 - **Real-time Notifications**: Telegram bot integration for test status updates
+- **Parallel Testing**: Concurrent test execution for faster feedback
+- **Configuration Management**: Centralized settings and environment variables
 - **Environment Management**: Automated dependency installation and validation
 
 ## 📁 Project Structure
@@ -16,19 +22,25 @@ A comprehensive test automation framework featuring **Robot Framework**, **Selen
 ```
 /robot-python/
 ├── requirements.txt           # Python dependencies
-├── run_tests.py             # Advanced test runner
+├── run_tests.py             # Advanced test runner with parallel execution
 ├── README.md                # This file
 ├── SETUP_GUIDE.md           # Detailed setup instructions
+├── config/
+│   └── settings.py          # Centralized configuration management
 ├── apps/                    # APK files for mobile testing
 │   └── ApiDemos-debug.apk
 ├── libraries/               # Custom Robot Framework libraries
 │   └── custom/
 │       ├── __init__.py
 │       ├── ApplitoolsLibrary.py    # Visual testing library
-│       └── TelegramNotifier.py     # Telegram notifications
+│       ├── TelegramNotifier.py     # Telegram notifications
+│       └── CookieClickerPage.py    # Page Object Model implementation
 ├── tests/suites/            # Test case files
-│   ├── cookie_clicker_test.robot   # Web game tests
-│   └── apidemos_test.robot         # Mobile app tests
+│   ├── cookie_clicker_test.robot   # Web game tests with POM
+│   ├── apidemos_test.robot         # Mobile app tests
+│   ├── data_driven_test.robot      # Data-driven testing examples
+│   ├── performance_test.robot      # Performance testing suite
+│   └── security_test.robot         # Security testing suite
 ├── reports/                 # Robot Framework test reports
 ├── allure-results/          # Allure test results
 └── allure-report/           # Generated Allure reports
@@ -57,12 +69,27 @@ export APPLITOOLS_API_KEY="your_api_key_here"
 python run_tests.py --web
 ```
 
-#### Mobile Tests (ApiDemos)
+#### Mobile Tests (Android)
 ```bash
 python run_tests.py --mobile
 ```
 
-#### Run All Tests
+#### Data-Driven Tests
+```bash
+python run_tests.py --data
+```
+
+#### Performance Tests
+```bash
+python run_tests.py --performance
+```
+
+#### Security Tests
+```bash
+python run_tests.py --security
+```
+
+#### Run All Tests (Parallel)
 ```bash
 python run_tests.py --all
 ```

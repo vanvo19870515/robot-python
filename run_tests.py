@@ -90,17 +90,76 @@ class TestRunner:
         test_file = os.path.join(self.tests_dir, "apidemos_test.robot")
         return self.run_robot_tests(test_file, "ApiDemos tests completed successfully")
 
+    def run_data_driven_tests(self):
+        """Run data-driven tests"""
+        print("📊 Running Data-Driven Tests...")
+        test_file = os.path.join(self.tests_dir, "data_driven_test.robot")
+        return self.run_robot_tests(test_file, "Data-driven tests completed successfully")
+
+    def run_performance_tests(self):
+        """Run performance tests"""
+        print("⚡ Running Performance Tests...")
+        test_file = os.path.join(self.tests_dir, "performance_test.robot")
+        return self.run_robot_tests(test_file, "Performance tests completed successfully")
+
+    def run_security_tests(self):
+        """Run security tests"""
+        print("🔒 Running Security Tests...")
+        test_file = os.path.join(self.tests_dir, "security_test.robot")
+        return self.run_robot_tests(test_file, "Security tests completed successfully")
+
     def run_all_tests(self):
         """Run all available tests"""
         print("🏃 Running All Tests...")
+        return self.run_parallel_tests()
 
-        # Run web tests first
-        web_success = self.run_cookie_clicker_tests()
+    def run_parallel_tests(self):
+        """Run tests in parallel for better performance"""
+        print("⚡ Running Tests in Parallel...")
 
-        # Run mobile tests
-        mobile_success = self.run_apidemos_tests()
+        import concurrent.futures
+        import threading
 
-        return all([web_success, mobile_success])
+        test_suites = [
+            ("Cookie Clicker", self.run_cookie_clicker_tests),
+            ("ApiDemos Mobile", self.run_apidemos_tests),
+            ("Data Driven", self.run_data_driven_tests),
+            ("Performance", self.run_performance_tests),
+            ("Security", self.run_security_tests),
+        ]
+
+        results = []
+        with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+            # Submit all tests
+            future_to_test = {
+                executor.submit(test_func): test_name
+                for test_name, test_func in test_suites
+            }
+
+            # Collect results as they complete
+            for future in concurrent.futures.as_completed(future_to_test):
+                test_name = future_to_test[future]
+                try:
+                    result = future.result()
+                    results.append((test_name, result))
+                    status = "✅ PASSED" if result else "❌ FAILED"
+                    print(f"   {test_name}: {status}")
+                except Exception as e:
+                    results.append((test_name, False))
+                    print(f"   {test_name}: ❌ ERROR - {e}")
+
+        # Return overall success
+        success_count = sum(1 for _, result in results if result)
+        total_count = len(results)
+
+        print(f"\n📊 Parallel Test Results: {success_count}/{total_count} passed")
+
+        if success_count == total_count:
+            print("🎉 All parallel tests completed successfully!")
+            return True
+        else:
+            print("⚠️  Some parallel tests failed.")
+            return False
 
     def run_robot_tests(self, test_file, success_message):
         """Execute Robot Framework tests with enhanced features"""
@@ -208,13 +267,19 @@ def main():
 Examples:
   python run_tests.py --web          # Run Cookie Clicker web tests
   python run_tests.py --mobile       # Run ApiDemos mobile tests
-  python run_tests.py --all          # Run all tests
+  python run_tests.py --data         # Run data-driven tests
+  python run_tests.py --performance  # Run performance tests
+  python run_tests.py --security     # Run security tests
+  python run_tests.py --all          # Run all test suites
   python run_tests.py --setup        # Setup environment only
         """
     )
 
     parser.add_argument("--web", action="store_true", help="Run Cookie Clicker web tests")
     parser.add_argument("--mobile", action="store_true", help="Run ApiDemos mobile tests")
+    parser.add_argument("--data", action="store_true", help="Run data-driven tests")
+    parser.add_argument("--performance", action="store_true", help="Run performance tests")
+    parser.add_argument("--security", action="store_true", help="Run security tests")
     parser.add_argument("--all", action="store_true", help="Run all test suites")
     parser.add_argument("--setup", action="store_true", help="Setup environment only")
 
@@ -234,6 +299,12 @@ Examples:
         success = runner.run_cookie_clicker_tests()
     elif args.mobile:
         success = runner.run_apidemos_tests()
+    elif args.data:
+        success = runner.run_data_driven_tests()
+    elif args.performance:
+        success = runner.run_performance_tests()
+    elif args.security:
+        success = runner.run_security_tests()
     elif args.all:
         success = runner.run_all_tests()
     else:
